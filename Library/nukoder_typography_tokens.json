@@ -1,0 +1,371 @@
+{
+  "typography": {
+    "fontFamily": {
+      "heading": {
+        "value": "Ubuntu, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+        "type": "fontFamilies",
+        "description": "Primary heading font - Ubuntu"
+      },
+      "body": {
+        "value": "Rokkitt, Georgia, 'Times New Roman', serif",
+        "type": "fontFamilies",
+        "description": "Body text font - Rokkitt"
+      },
+      "subheading": {
+        "value": "Rokkitt, Georgia, 'Times New Roman', serif",
+        "type": "fontFamilies",
+        "description": "Subheading font - Rokkitt"
+      },
+      "mono": {
+        "value": "'JetBrains Mono', 'Fira Code', 'Courier New', monospace",
+        "type": "fontFamilies",
+        "description": "Monospace font for code"
+      }
+    },
+    "fontWeight": {
+      "light": {
+        "value": "300",
+        "type": "fontWeights"
+      },
+      "regular": {
+        "value": "400",
+        "type": "fontWeights"
+      },
+      "medium": {
+        "value": "500",
+        "type": "fontWeights"
+      },
+      "semibold": {
+        "value": "600",
+        "type": "fontWeights"
+      },
+      "bold": {
+        "value": "700",
+        "type": "fontWeights"
+      }
+    },
+    "fontSize": {
+      "xs": {
+        "value": "12px",
+        "type": "fontSizes"
+      },
+      "sm": {
+        "value": "14px",
+        "type": "fontSizes"
+      },
+      "base": {
+        "value": "16px",
+        "type": "fontSizes"
+      },
+      "lg": {
+        "value": "18px",
+        "type": "fontSizes"
+      },
+      "xl": {
+        "value": "20px",
+        "type": "fontSizes"
+      },
+      "2xl": {
+        "value": "24px",
+        "type": "fontSizes"
+      },
+      "3xl": {
+        "value": "30px",
+        "type": "fontSizes"
+      },
+      "4xl": {
+        "value": "36px",
+        "type": "fontSizes"
+      },
+      "5xl": {
+        "value": "48px",
+        "type": "fontSizes"
+      },
+      "6xl": {
+        "value": "60px",
+        "type": "fontSizes"
+      },
+      "7xl": {
+        "value": "72px",
+        "type": "fontSizes"
+      }
+    },
+    "lineHeight": {
+      "tight": {
+        "value": "1.25",
+        "type": "lineHeights"
+      },
+      "snug": {
+        "value": "1.375",
+        "type": "lineHeights"
+      },
+      "normal": {
+        "value": "1.5",
+        "type": "lineHeights"
+      },
+      "relaxed": {
+        "value": "1.625",
+        "type": "lineHeights"
+      },
+      "loose": {
+        "value": "2",
+        "type": "lineHeights"
+      }
+    },
+    "letterSpacing": {
+      "tighter": {
+        "value": "-0.05em",
+        "type": "letterSpacing"
+      },
+      "tight": {
+        "value": "-0.025em",
+        "type": "letterSpacing"
+      },
+      "normal": {
+        "value": "0em",
+        "type": "letterSpacing"
+      },
+      "wide": {
+        "value": "0.025em",
+        "type": "letterSpacing"
+      },
+      "wider": {
+        "value": "0.05em",
+        "type": "letterSpacing"
+      },
+      "widest": {
+        "value": "0.1em",
+        "type": "letterSpacing"
+      }
+    },
+    "heading": {
+      "h1": {
+        "value": {
+          "fontFamily": "{typography.fontFamily.heading.value}",
+          "fontWeight": "{typography.fontWeight.bold.value}",
+          "fontSize": "{typography.fontSize.6xl.value}",
+          "lineHeight": "{typography.lineHeight.tight.value}",
+          "letterSpacing": "{typography.letterSpacing.tight.value}"
+        },
+        "type": "typography",
+        "description": "Display heading - 60px/Bold/Ubuntu"
+      },
+      "h2": {
+        "value": {
+          "fontFamily": "{typography.fontFamily.heading.value}",
+          "fontWeight": "{typography.fontWeight.bold.value}",
+          "fontSize": "{typography.fontSize.5xl.value}",
+          "lineHeight": "{typography.lineHeight.tight.value}",
+          "letterSpacing": "{typography.letterSpacing.tight.value}"
+        },
+        "type": "typography",
+        "description": "Page heading - 48px/Bold/Ubuntu"
+      },
+      "h3": {
+        "value": {
+          "fontFamily": "{typography.fontFamily.heading.value}",
+          "fontWeight": "{typography.fontWeight.semibold.value}",
+          "fontSize": "{typography.fontSize.4xl.value}",
+          "lineHeight": "{typography.lineHeight.snug.value}",
+          "letterSpacing": "{typography.letterSpacing.tight.value}"
+        },
+        "type": "typography",
+        "description": "Section heading - 36px/Semibold/Ubuntu"
+      },
+      "h4": {
+        "value": {
+          "fontFamily": "{typography.fontFamily.heading.value}",
+          "fontWeight": "{typography.fontWeight.semibold.value}",
+          "fontSize": "{typography.fontSize.3xl.value}",
+          "lineHeight": "{typography.lineHeight.snug.value}",
+          "letterSpacing": "{typography.letterSpacing.normal.value}"
+        },
+        "type": "typography",
+        "description": "Subsection heading - 30px/Semibold/Ubuntu"
+      },
+      "h5": {
+        "value": {
+          "fontFamily": "{typography.fontFamily.heading.value}",
+          "fontWeight": "{typography.fontWeight.medium.value}",
+          "fontSize": "{typography.fontSize.2xl.value}",
+          "lineHeight": "{typography.lineHeight.normal.value}",
+          "letterSpacing": "{typography.letterSpacing.normal.value}"
+        },
+        "type": "typography",
+        "description": "Small heading - 24px/Medium/Ubuntu"
+      },
+      "h6": {
+        "value": {
+          "fontFamily": "{typography.fontFamily.heading.value}",
+          "fontWeight": "{typography.fontWeight.medium.value}",
+          "fontSize": "{typography.fontSize.xl.value}",
+          "lineHeight": "{typography.lineHeight.normal.value}",
+          "letterSpacing": "{typography.letterSpacing.normal.value}"
+        },
+        "type": "typography",
+        "description": "Smallest heading - 20px/Medium/Ubuntu"
+      }
+    },
+    "subheading": {
+      "large": {
+        "value": {
+          "fontFamily": "{typography.fontFamily.subheading.value}",
+          "fontWeight": "{typography.fontWeight.semibold.value}",
+          "fontSize": "{typography.fontSize.xl.value}",
+          "lineHeight": "{typography.lineHeight.normal.value}",
+          "letterSpacing": "{typography.letterSpacing.normal.value}"
+        },
+        "type": "typography",
+        "description": "Large subheading - 20px/Semibold/Rokkitt"
+      },
+      "medium": {
+        "value": {
+          "fontFamily": "{typography.fontFamily.subheading.value}",
+          "fontWeight": "{typography.fontWeight.semibold.value}",
+          "fontSize": "{typography.fontSize.lg.value}",
+          "lineHeight": "{typography.lineHeight.normal.value}",
+          "letterSpacing": "{typography.letterSpacing.normal.value}"
+        },
+        "type": "typography",
+        "description": "Medium subheading - 18px/Semibold/Rokkitt"
+      },
+      "small": {
+        "value": {
+          "fontFamily": "{typography.fontFamily.subheading.value}",
+          "fontWeight": "{typography.fontWeight.medium.value}",
+          "fontSize": "{typography.fontSize.base.value}",
+          "lineHeight": "{typography.lineHeight.normal.value}",
+          "letterSpacing": "{typography.letterSpacing.normal.value}"
+        },
+        "type": "typography",
+        "description": "Small subheading - 16px/Medium/Rokkitt"
+      }
+    },
+    "body": {
+      "large": {
+        "value": {
+          "fontFamily": "{typography.fontFamily.body.value}",
+          "fontWeight": "{typography.fontWeight.regular.value}",
+          "fontSize": "{typography.fontSize.lg.value}",
+          "lineHeight": "{typography.lineHeight.relaxed.value}",
+          "letterSpacing": "{typography.letterSpacing.normal.value}"
+        },
+        "type": "typography",
+        "description": "Large body text - 18px/Regular/Rokkitt"
+      },
+      "base": {
+        "value": {
+          "fontFamily": "{typography.fontFamily.body.value}",
+          "fontWeight": "{typography.fontWeight.regular.value}",
+          "fontSize": "{typography.fontSize.base.value}",
+          "lineHeight": "{typography.lineHeight.relaxed.value}",
+          "letterSpacing": "{typography.letterSpacing.normal.value}"
+        },
+        "type": "typography",
+        "description": "Default body text - 16px/Regular/Rokkitt"
+      },
+      "small": {
+        "value": {
+          "fontFamily": "{typography.fontFamily.body.value}",
+          "fontWeight": "{typography.fontWeight.regular.value}",
+          "fontSize": "{typography.fontSize.sm.value}",
+          "lineHeight": "{typography.lineHeight.normal.value}",
+          "letterSpacing": "{typography.letterSpacing.normal.value}"
+        },
+        "type": "typography",
+        "description": "Small body text - 14px/Regular/Rokkitt"
+      },
+      "xs": {
+        "value": {
+          "fontFamily": "{typography.fontFamily.body.value}",
+          "fontWeight": "{typography.fontWeight.regular.value}",
+          "fontSize": "{typography.fontSize.xs.value}",
+          "lineHeight": "{typography.lineHeight.normal.value}",
+          "letterSpacing": "{typography.letterSpacing.normal.value}"
+        },
+        "type": "typography",
+        "description": "Extra small body text - 12px/Regular/Rokkitt"
+      }
+    },
+    "label": {
+      "large": {
+        "value": {
+          "fontFamily": "{typography.fontFamily.heading.value}",
+          "fontWeight": "{typography.fontWeight.medium.value}",
+          "fontSize": "{typography.fontSize.base.value}",
+          "lineHeight": "{typography.lineHeight.normal.value}",
+          "letterSpacing": "{typography.letterSpacing.wide.value}"
+        },
+        "type": "typography",
+        "description": "Large label - 16px/Medium/Ubuntu"
+      },
+      "medium": {
+        "value": {
+          "fontFamily": "{typography.fontFamily.heading.value}",
+          "fontWeight": "{typography.fontWeight.medium.value}",
+          "fontSize": "{typography.fontSize.sm.value}",
+          "lineHeight": "{typography.lineHeight.normal.value}",
+          "letterSpacing": "{typography.letterSpacing.wide.value}"
+        },
+        "type": "typography",
+        "description": "Medium label - 14px/Medium/Ubuntu"
+      },
+      "small": {
+        "value": {
+          "fontFamily": "{typography.fontFamily.heading.value}",
+          "fontWeight": "{typography.fontWeight.medium.value}",
+          "fontSize": "{typography.fontSize.xs.value}",
+          "lineHeight": "{typography.lineHeight.normal.value}",
+          "letterSpacing": "{typography.letterSpacing.wider.value}"
+        },
+        "type": "typography",
+        "description": "Small label - 12px/Medium/Ubuntu"
+      }
+    },
+    "caption": {
+      "value": {
+        "fontFamily": "{typography.fontFamily.body.value}",
+        "fontWeight": "{typography.fontWeight.regular.value}",
+        "fontSize": "{typography.fontSize.xs.value}",
+        "lineHeight": "{typography.lineHeight.normal.value}",
+        "letterSpacing": "{typography.letterSpacing.normal.value}"
+      },
+      "type": "typography",
+      "description": "Caption text - 12px/Regular/Rokkitt"
+    },
+    "overline": {
+      "value": {
+        "fontFamily": "{typography.fontFamily.heading.value}",
+        "fontWeight": "{typography.fontWeight.semibold.value}",
+        "fontSize": "{typography.fontSize.xs.value}",
+        "lineHeight": "{typography.lineHeight.normal.value}",
+        "letterSpacing": "{typography.letterSpacing.widest.value}",
+        "textTransform": "uppercase"
+      },
+      "type": "typography",
+      "description": "Overline/eyebrow text - 12px/Semibold/Ubuntu/Uppercase"
+    },
+    "code": {
+      "inline": {
+        "value": {
+          "fontFamily": "{typography.fontFamily.mono.value}",
+          "fontWeight": "{typography.fontWeight.regular.value}",
+          "fontSize": "{typography.fontSize.sm.value}",
+          "lineHeight": "{typography.lineHeight.normal.value}"
+        },
+        "type": "typography",
+        "description": "Inline code - 14px/Regular/Mono"
+      },
+      "block": {
+        "value": {
+          "fontFamily": "{typography.fontFamily.mono.value}",
+          "fontWeight": "{typography.fontWeight.regular.value}",
+          "fontSize": "{typography.fontSize.sm.value}",
+          "lineHeight": "{typography.lineHeight.relaxed.value}"
+        },
+        "type": "typography",
+        "description": "Code block - 14px/Regular/Mono"
+      }
+    }
+  }
+}

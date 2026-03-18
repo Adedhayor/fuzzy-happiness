@@ -1,0 +1,19 @@
+node_modules/
+dist/
+.env
+.env.local
+.DS_Store
+*.local
+.firebase/
+
+# Binary / large assets (not needed for deploy)
+*.pdf
+*.docx
+*.zip
+*.jpg
+*.JPG
+*.png
+*.PNG
+Logos/
+stitch/
+Revolut*/

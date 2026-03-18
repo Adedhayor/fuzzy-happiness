@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run build 2>&1)",
+      "mcp__claude_ai_Figma__get_metadata",
+      "mcp__claude_ai_Figma__get_design_context",
+      "Bash(ls -lt /Users/Adedayo/Desktop/Nukodes/src/*.jsx)",
+      "Bash(wc -l /Users/Adedayo/Desktop/Nukodes/src/Nukodes_App_V3.jsx && node --input-type=module --eval \"import\\('/Users/Adedayo/Desktop/Nukodes/src/Nukodes_App_V3.jsx'\\).catch\\(e => console.error\\(e.message\\)\\)\" 2>&1 | head -5)",
+      "Bash(npx --yes acorn --ecma2020 --module src/Nukodes_App_V3.jsx > /dev/null 2>&1 && echo \"PARSE OK\" || echo \"PARSE ERROR\")",
+      "Bash(npx acorn --ecma2020 --module src/Nukodes_App_V3.jsx 2>&1 | head -10)",
+      "Bash(npx vite build --logLevel error 2>&1 | tail -20)",
+      "Bash(npm run dev)",
+      "Bash(grep -r \"services\\\\|Services\\\\|SERVICE\" /Users/Adedayo/Desktop/Nukodes/src --include=\"*.jsx\" 2>/dev/null | head -20)",
+      "WebFetch(domain:stitch.withgoogle.com)",
+      "WebFetch(domain:www.mobbin.com)",
+      "WebFetch(domain:www.xero.com)",
+      "WebFetch(domain:blog.xero.com)",
+      "Bash(lsof -ti:5174 | head -3)",
+      "Bash(lsof -ti:5174 | head -5)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:5174)"
+    ]
+  }
+}

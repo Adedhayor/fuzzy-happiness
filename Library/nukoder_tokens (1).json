@@ -1,0 +1,902 @@
+{
+  "color": {
+    "brand": {
+      "primary": {
+        "50": {
+          "value": "#E8E8FF",
+          "type": "color",
+          "description": "Electric Blue - Lightest tint"
+        },
+        "100": {
+          "value": "#D1D1FF",
+          "type": "color",
+          "description": "Electric Blue - Light tint"
+        },
+        "200": {
+          "value": "#A3A3FF",
+          "type": "color",
+          "description": "Electric Blue - Medium tint"
+        },
+        "300": {
+          "value": "#7575FF",
+          "type": "color",
+          "description": "Electric Blue - Soft"
+        },
+        "400": {
+          "value": "#4C4CFF",
+          "type": "color",
+          "description": "Electric Blue - Medium"
+        },
+        "500": {
+          "value": "#2323FF",
+          "type": "color",
+          "description": "Electric Blue - Base/Default"
+        },
+        "600": {
+          "value": "#1C1CCC",
+          "type": "color",
+          "description": "Electric Blue - Medium shade"
+        },
+        "700": {
+          "value": "#151599",
+          "type": "color",
+          "description": "Electric Blue - Dark shade"
+        },
+        "800": {
+          "value": "#0E0E66",
+          "type": "color",
+          "description": "Electric Blue - Darker shade"
+        },
+        "900": {
+          "value": "#070733",
+          "type": "color",
+          "description": "Electric Blue - Darkest shade"
+        }
+      },
+      "secondary": {
+        "50": {
+          "value": "#E6E7EB",
+          "type": "color",
+          "description": "Deep Tech Navy - Lightest tint"
+        },
+        "100": {
+          "value": "#CDCFD7",
+          "type": "color",
+          "description": "Deep Tech Navy - Light tint"
+        },
+        "200": {
+          "value": "#9B9FAF",
+          "type": "color",
+          "description": "Deep Tech Navy - Medium tint"
+        },
+        "300": {
+          "value": "#696F87",
+          "type": "color",
+          "description": "Deep Tech Navy - Soft"
+        },
+        "400": {
+          "value": "#3A3F58",
+          "type": "color",
+          "description": "Deep Tech Navy - Medium"
+        },
+        "500": {
+          "value": "#0A0F2A",
+          "type": "color",
+          "description": "Deep Tech Navy - Base/Default"
+        },
+        "600": {
+          "value": "#080C22",
+          "type": "color",
+          "description": "Deep Tech Navy - Medium shade"
+        },
+        "700": {
+          "value": "#060919",
+          "type": "color",
+          "description": "Deep Tech Navy - Dark shade"
+        },
+        "800": {
+          "value": "#040611",
+          "type": "color",
+          "description": "Deep Tech Navy - Darker shade"
+        },
+        "900": {
+          "value": "#020308",
+          "type": "color",
+          "description": "Deep Tech Navy - Darkest shade"
+        }
+      }
+    },
+    "accent": {
+      "cyan": {
+        "50": {
+          "value": "#E6FDFF",
+          "type": "color",
+          "description": "Cyber Cyan - Lightest tint"
+        },
+        "100": {
+          "value": "#CCFBFF",
+          "type": "color",
+          "description": "Cyber Cyan - Light tint"
+        },
+        "200": {
+          "value": "#99F7FF",
+          "type": "color",
+          "description": "Cyber Cyan - Medium tint"
+        },
+        "300": {
+          "value": "#66F3FF",
+          "type": "color",
+          "description": "Cyber Cyan - Soft"
+        },
+        "400": {
+          "value": "#33ECFF",
+          "type": "color",
+          "description": "Cyber Cyan - Medium"
+        },
+        "500": {
+          "value": "#00E5FF",
+          "type": "color",
+          "description": "Cyber Cyan - Base/Default"
+        },
+        "600": {
+          "value": "#00B7CC",
+          "type": "color",
+          "description": "Cyber Cyan - Medium shade"
+        },
+        "700": {
+          "value": "#008999",
+          "type": "color",
+          "description": "Cyber Cyan - Dark shade"
+        },
+        "800": {
+          "value": "#005C66",
+          "type": "color",
+          "description": "Cyber Cyan - Darker shade"
+        },
+        "900": {
+          "value": "#002E33",
+          "type": "color",
+          "description": "Cyber Cyan - Darkest shade"
+        }
+      },
+      "green": {
+        "50": {
+          "value": "#EAFFE9",
+          "type": "color",
+          "description": "Neon Growth - Lightest tint"
+        },
+        "100": {
+          "value": "#D5FFD3",
+          "type": "color",
+          "description": "Neon Growth - Light tint"
+        },
+        "200": {
+          "value": "#ABFFA7",
+          "type": "color",
+          "description": "Neon Growth - Medium tint"
+        },
+        "300": {
+          "value": "#80FF7B",
+          "type": "color",
+          "description": "Neon Growth - Soft"
+        },
+        "400": {
+          "value": "#58FF76",
+          "type": "color",
+          "description": "Neon Growth - Medium"
+        },
+        "500": {
+          "value": "#30FF71",
+          "type": "color",
+          "description": "Neon Growth - Base/Default"
+        },
+        "600": {
+          "value": "#26CC5A",
+          "type": "color",
+          "description": "Neon Growth - Medium shade"
+        },
+        "700": {
+          "value": "#1D9944",
+          "type": "color",
+          "description": "Neon Growth - Dark shade"
+        },
+        "800": {
+          "value": "#13662D",
+          "type": "color",
+          "description": "Neon Growth - Darker shade"
+        },
+        "900": {
+          "value": "#0A3317",
+          "type": "color",
+          "description": "Neon Growth - Darkest shade"
+        }
+      },
+      "yellow": {
+        "50": {
+          "value": "#FDFDE6",
+          "type": "color",
+          "description": "Volt Yellow - Lightest tint"
+        },
+        "100": {
+          "value": "#FBFBCC",
+          "type": "color",
+          "description": "Volt Yellow - Light tint"
+        },
+        "200": {
+          "value": "#F7F799",
+          "type": "color",
+          "description": "Volt Yellow - Medium tint"
+        },
+        "300": {
+          "value": "#F3F366",
+          "type": "color",
+          "description": "Volt Yellow - Soft"
+        },
+        "400": {
+          "value": "#EBEB33",
+          "type": "color",
+          "description": "Volt Yellow - Medium"
+        },
+        "500": {
+          "value": "#E2E800",
+          "type": "color",
+          "description": "Volt Yellow - Base/Default"
+        },
+        "600": {
+          "value": "#B5B700",
+          "type": "color",
+          "description": "Volt Yellow - Medium shade"
+        },
+        "700": {
+          "value": "#888900",
+          "type": "color",
+          "description": "Volt Yellow - Dark shade"
+        },
+        "800": {
+          "value": "#5A5A00",
+          "type": "color",
+          "description": "Volt Yellow - Darker shade"
+        },
+        "900": {
+          "value": "#2D2D00",
+          "type": "color",
+          "description": "Volt Yellow - Darkest shade"
+        }
+      }
+    },
+    "neutral": {
+      "black": {
+        "value": "#0A0A0C",
+        "type": "color",
+        "description": "Carbon Black - Pure"
+      },
+      "grey": {
+        "50": {
+          "value": "#F8F9FA",
+          "type": "color",
+          "description": "Grey - Lightest"
+        },
+        "100": {
+          "value": "#F5F7FA",
+          "type": "color",
+          "description": "Cloud White"
+        },
+        "200": {
+          "value": "#E5E7EB",
+          "type": "color",
+          "description": "Grey - Very light"
+        },
+        "300": {
+          "value": "#BFC3CC",
+          "type": "color",
+          "description": "Mist Grey"
+        },
+        "400": {
+          "value": "#9CA3AF",
+          "type": "color",
+          "description": "Grey - Medium light"
+        },
+        "500": {
+          "value": "#6B7280",
+          "type": "color",
+          "description": "Grey - Medium"
+        },
+        "600": {
+          "value": "#4B5563",
+          "type": "color",
+          "description": "Grey - Medium dark"
+        },
+        "700": {
+          "value": "#374151",
+          "type": "color",
+          "description": "Grey - Dark"
+        },
+        "800": {
+          "value": "#2D303B",
+          "type": "color",
+          "description": "Steel Grey"
+        },
+        "900": {
+          "value": "#1A1D24",
+          "type": "color",
+          "description": "Graphite Grey"
+        },
+        "950": {
+          "value": "#0A0A0C",
+          "type": "color",
+          "description": "Carbon Black"
+        }
+      },
+      "white": {
+        "value": "#FFFFFF",
+        "type": "color",
+        "description": "Pure White"
+      }
+    },
+    "semantic": {
+      "background": {
+        "primary": {
+          "value": "{color.neutral.black.value}",
+          "type": "color"
+        },
+        "secondary": {
+          "value": "{color.neutral.grey.900.value}",
+          "type": "color"
+        },
+        "tertiary": {
+          "value": "{color.neutral.grey.800.value}",
+          "type": "color"
+        }
+      },
+      "surface": {
+        "default": {
+          "value": "{color.neutral.grey.900.value}",
+          "type": "color"
+        },
+        "elevated": {
+          "value": "{color.neutral.grey.800.value}",
+          "type": "color"
+        },
+        "overlay": {
+          "value": "{color.neutral.grey.950.value}",
+          "type": "color"
+        }
+      },
+      "text": {
+        "primary": {
+          "value": "{color.neutral.white.value}",
+          "type": "color"
+        },
+        "secondary": {
+          "value": "{color.neutral.grey.300.value}",
+          "type": "color"
+        },
+        "tertiary": {
+          "value": "{color.neutral.grey.500.value}",
+          "type": "color"
+        },
+        "inverse": {
+          "value": "{color.neutral.black.value}",
+          "type": "color"
+        },
+        "brand": {
+          "value": "{color.brand.primary.500.value}",
+          "type": "color"
+        },
+        "accent-cyan": {
+          "value": "{color.accent.cyan.500.value}",
+          "type": "color"
+        },
+        "accent-green": {
+          "value": "{color.accent.green.500.value}",
+          "type": "color"
+        },
+        "accent-yellow": {
+          "value": "{color.accent.yellow.500.value}",
+          "type": "color"
+        }
+      },
+      "border": {
+        "default": {
+          "value": "{color.neutral.grey.800.value}",
+          "type": "color"
+        },
+        "subtle": {
+          "value": "{color.neutral.grey.900.value}",
+          "type": "color"
+        },
+        "strong": {
+          "value": "{color.neutral.grey.300.value}",
+          "type": "color"
+        },
+        "brand": {
+          "value": "{color.brand.primary.500.value}",
+          "type": "color"
+        },
+        "focus": {
+          "value": "{color.brand.primary.400.value}",
+          "type": "color"
+        }
+      },
+      "action": {
+        "primary": {
+          "default": {
+            "value": "{color.brand.primary.500.value}",
+            "type": "color"
+          },
+          "hover": {
+            "value": "{color.brand.primary.600.value}",
+            "type": "color"
+          },
+          "pressed": {
+            "value": "{color.brand.primary.700.value}",
+            "type": "color"
+          },
+          "disabled": {
+            "value": "{color.brand.primary.200.value}",
+            "type": "color"
+          }
+        },
+        "secondary": {
+          "default": {
+            "value": "{color.brand.secondary.500.value}",
+            "type": "color"
+          },
+          "hover": {
+            "value": "{color.brand.secondary.400.value}",
+            "type": "color"
+          },
+          "pressed": {
+            "value": "{color.brand.secondary.600.value}",
+            "type": "color"
+          },
+          "disabled": {
+            "value": "{color.brand.secondary.200.value}",
+            "type": "color"
+          }
+        },
+        "ghost": {
+          "default": {
+            "value": "transparent",
+            "type": "color"
+          },
+          "hover": {
+            "value": "{color.neutral.grey.900.value}",
+            "type": "color"
+          },
+          "pressed": {
+            "value": "{color.neutral.grey.800.value}",
+            "type": "color"
+          }
+        }
+      },
+      "feedback": {
+        "success": {
+          "default": {
+            "value": "{color.accent.green.500.value}",
+            "type": "color"
+          },
+          "subtle": {
+            "value": "{color.accent.green.100.value}",
+            "type": "color"
+          },
+          "strong": {
+            "value": "{color.accent.green.700.value}",
+            "type": "color"
+          }
+        },
+        "warning": {
+          "default": {
+            "value": "{color.accent.yellow.500.value}",
+            "type": "color"
+          },
+          "subtle": {
+            "value": "{color.accent.yellow.100.value}",
+            "type": "color"
+          },
+          "strong": {
+            "value": "{color.accent.yellow.700.value}",
+            "type": "color"
+          }
+        },
+        "error": {
+          "default": {
+            "value": "#EF4444",
+            "type": "color"
+          },
+          "subtle": {
+            "value": "#FEE2E2",
+            "type": "color"
+          },
+          "strong": {
+            "value": "#B91C1C",
+            "type": "color"
+          }
+        },
+        "info": {
+          "default": {
+            "value": "{color.accent.cyan.500.value}",
+            "type": "color"
+          },
+          "subtle": {
+            "value": "{color.accent.cyan.100.value}",
+            "type": "color"
+          },
+          "strong": {
+            "value": "{color.accent.cyan.700.value}",
+            "type": "color"
+          }
+        }
+      }
+    }
+  },
+  "typography": {
+    "fontFamily": {
+      "heading": {
+        "value": "Ubuntu, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+        "type": "fontFamilies",
+        "description": "Primary heading font - Ubuntu"
+      },
+      "body": {
+        "value": "Rokkitt, Georgia, 'Times New Roman', serif",
+        "type": "fontFamilies",
+        "description": "Body text font - Rokkitt"
+      },
+      "subheading": {
+        "value": "Rokkitt, Georgia, 'Times New Roman', serif",
+        "type": "fontFamilies",
+        "description": "Subheading font - Rokkitt"
+      },
+      "mono": {
+        "value": "'JetBrains Mono', 'Fira Code', 'Courier New', monospace",
+        "type": "fontFamilies",
+        "description": "Monospace font for code"
+      }
+    },
+    "fontWeight": {
+      "light": {
+        "value": "300",
+        "type": "fontWeights"
+      },
+      "regular": {
+        "value": "400",
+        "type": "fontWeights"
+      },
+      "medium": {
+        "value": "500",
+        "type": "fontWeights"
+      },
+      "semibold": {
+        "value": "600",
+        "type": "fontWeights"
+      },
+      "bold": {
+        "value": "700",
+        "type": "fontWeights"
+      }
+    },
+    "fontSize": {
+      "xs": {
+        "value": "12px",
+        "type": "fontSizes"
+      },
+      "sm": {
+        "value": "14px",
+        "type": "fontSizes"
+      },
+      "base": {
+        "value": "16px",
+        "type": "fontSizes"
+      },
+      "lg": {
+        "value": "18px",
+        "type": "fontSizes"
+      },
+      "xl": {
+        "value": "20px",
+        "type": "fontSizes"
+      },
+      "2xl": {
+        "value": "24px",
+        "type": "fontSizes"
+      },
+      "3xl": {
+        "value": "30px",
+        "type": "fontSizes"
+      },
+      "4xl": {
+        "value": "36px",
+        "type": "fontSizes"
+      },
+      "5xl": {
+        "value": "48px",
+        "type": "fontSizes"
+      },
+      "6xl": {
+        "value": "60px",
+        "type": "fontSizes"
+      },
+      "7xl": {
+        "value": "72px",
+        "type": "fontSizes"
+      }
+    },
+    "lineHeight": {
+      "tight": {
+        "value": "1.25",
+        "type": "lineHeights"
+      },
+      "snug": {
+        "value": "1.375",
+        "type": "lineHeights"
+      },
+      "normal": {
+        "value": "1.5",
+        "type": "lineHeights"
+      },
+      "relaxed": {
+        "value": "1.625",
+        "type": "lineHeights"
+      },
+      "loose": {
+        "value": "2",
+        "type": "lineHeights"
+      }
+    },
+    "letterSpacing": {
+      "tighter": {
+        "value": "-0.05em",
+        "type": "letterSpacing"
+      },
+      "tight": {
+        "value": "-0.025em",
+        "type": "letterSpacing"
+      },
+      "normal": {
+        "value": "0em",
+        "type": "letterSpacing"
+      },
+      "wide": {
+        "value": "0.025em",
+        "type": "letterSpacing"
+      },
+      "wider": {
+        "value": "0.05em",
+        "type": "letterSpacing"
+      },
+      "widest": {
+        "value": "0.1em",
+        "type": "letterSpacing"
+      }
+    },
+    "heading": {
+      "h1": {
+        "value": {
+          "fontFamily": "{typography.fontFamily.heading.value}",
+          "fontWeight": "{typography.fontWeight.bold.value}",
+          "fontSize": "{typography.fontSize.6xl.value}",
+          "lineHeight": "{typography.lineHeight.tight.value}",
+          "letterSpacing": "{typography.letterSpacing.tight.value}"
+        },
+        "type": "typography",
+        "description": "Display heading - 60px/Bold/Ubuntu"
+      },
+      "h2": {
+        "value": {
+          "fontFamily": "{typography.fontFamily.heading.value}",
+          "fontWeight": "{typography.fontWeight.bold.value}",
+          "fontSize": "{typography.fontSize.5xl.value}",
+          "lineHeight": "{typography.lineHeight.tight.value}",
+          "letterSpacing": "{typography.letterSpacing.tight.value}"
+        },
+        "type": "typography",
+        "description": "Page heading - 48px/Bold/Ubuntu"
+      },
+      "h3": {
+        "value": {
+          "fontFamily": "{typography.fontFamily.heading.value}",
+          "fontWeight": "{typography.fontWeight.semibold.value}",
+          "fontSize": "{typography.fontSize.4xl.value}",
+          "lineHeight": "{typography.lineHeight.snug.value}",
+          "letterSpacing": "{typography.letterSpacing.tight.value}"
+        },
+        "type": "typography",
+        "description": "Section heading - 36px/Semibold/Ubuntu"
+      },
+      "h4": {
+        "value": {
+          "fontFamily": "{typography.fontFamily.heading.value}",
+          "fontWeight": "{typography.fontWeight.semibold.value}",
+          "fontSize": "{typography.fontSize.3xl.value}",
+          "lineHeight": "{typography.lineHeight.snug.value}",
+          "letterSpacing": "{typography.letterSpacing.normal.value}"
+        },
+        "type": "typography",
+        "description": "Subsection heading - 30px/Semibold/Ubuntu"
+      },
+      "h5": {
+        "value": {
+          "fontFamily": "{typography.fontFamily.heading.value}",
+          "fontWeight": "{typography.fontWeight.medium.value}",
+          "fontSize": "{typography.fontSize.2xl.value}",
+          "lineHeight": "{typography.lineHeight.normal.value}",
+          "letterSpacing": "{typography.letterSpacing.normal.value}"
+        },
+        "type": "typography",
+        "description": "Small heading - 24px/Medium/Ubuntu"
+      },
+      "h6": {
+        "value": {
+          "fontFamily": "{typography.fontFamily.heading.value}",
+          "fontWeight": "{typography.fontWeight.medium.value}",
+          "fontSize": "{typography.fontSize.xl.value}",
+          "lineHeight": "{typography.lineHeight.normal.value}",
+          "letterSpacing": "{typography.letterSpacing.normal.value}"
+        },
+        "type": "typography",
+        "description": "Smallest heading - 20px/Medium/Ubuntu"
+      }
+    },
+    "subheading": {
+      "large": {
+        "value": {
+          "fontFamily": "{typography.fontFamily.subheading.value}",
+          "fontWeight": "{typography.fontWeight.semibold.value}",
+          "fontSize": "{typography.fontSize.xl.value}",
+          "lineHeight": "{typography.lineHeight.normal.value}",
+          "letterSpacing": "{typography.letterSpacing.normal.value}"
+        },
+        "type": "typography",
+        "description": "Large subheading - 20px/Semibold/Rokkitt"
+      },
+      "medium": {
+        "value": {
+          "fontFamily": "{typography.fontFamily.subheading.value}",
+          "fontWeight": "{typography.fontWeight.semibold.value}",
+          "fontSize": "{typography.fontSize.lg.value}",
+          "lineHeight": "{typography.lineHeight.normal.value}",
+          "letterSpacing": "{typography.letterSpacing.normal.value}"
+        },
+        "type": "typography",
+        "description": "Medium subheading - 18px/Semibold/Rokkitt"
+      },
+      "small": {
+        "value": {
+          "fontFamily": "{typography.fontFamily.subheading.value}",
+          "fontWeight": "{typography.fontWeight.medium.value}",
+          "fontSize": "{typography.fontSize.base.value}",
+          "lineHeight": "{typography.lineHeight.normal.value}",
+          "letterSpacing": "{typography.letterSpacing.normal.value}"
+        },
+        "type": "typography",
+        "description": "Small subheading - 16px/Medium/Rokkitt"
+      }
+    },
+    "body": {
+      "large": {
+        "value": {
+          "fontFamily": "{typography.fontFamily.body.value}",
+          "fontWeight": "{typography.fontWeight.regular.value}",
+          "fontSize": "{typography.fontSize.lg.value}",
+          "lineHeight": "{typography.lineHeight.relaxed.value}",
+          "letterSpacing": "{typography.letterSpacing.normal.value}"
+        },
+        "type": "typography",
+        "description": "Large body text - 18px/Regular/Rokkitt"
+      },
+      "base": {
+        "value": {
+          "fontFamily": "{typography.fontFamily.body.value}",
+          "fontWeight": "{typography.fontWeight.regular.value}",
+          "fontSize": "{typography.fontSize.base.value}",
+          "lineHeight": "{typography.lineHeight.relaxed.value}",
+          "letterSpacing": "{typography.letterSpacing.normal.value}"
+        },
+        "type": "typography",
+        "description": "Default body text - 16px/Regular/Rokkitt"
+      },
+      "small": {
+        "value": {
+          "fontFamily": "{typography.fontFamily.body.value}",
+          "fontWeight": "{typography.fontWeight.regular.value}",
+          "fontSize": "{typography.fontSize.sm.value}",
+          "lineHeight": "{typography.lineHeight.normal.value}",
+          "letterSpacing": "{typography.letterSpacing.normal.value}"
+        },
+        "type": "typography",
+        "description": "Small body text - 14px/Regular/Rokkitt"
+      },
+      "xs": {
+        "value": {
+          "fontFamily": "{typography.fontFamily.body.value}",
+          "fontWeight": "{typography.fontWeight.regular.value}",
+          "fontSize": "{typography.fontSize.xs.value}",
+          "lineHeight": "{typography.lineHeight.normal.value}",
+          "letterSpacing": "{typography.letterSpacing.normal.value}"
+        },
+        "type": "typography",
+        "description": "Extra small body text - 12px/Regular/Rokkitt"
+      }
+    },
+    "label": {
+      "large": {
+        "value": {
+          "fontFamily": "{typography.fontFamily.heading.value}",
+          "fontWeight": "{typography.fontWeight.medium.value}",
+          "fontSize": "{typography.fontSize.base.value}",
+          "lineHeight": "{typography.lineHeight.normal.value}",
+          "letterSpacing": "{typography.letterSpacing.wide.value}"
+        },
+        "type": "typography",
+        "description": "Large label - 16px/Medium/Ubuntu"
+      },
+      "medium": {
+        "value": {
+          "fontFamily": "{typography.fontFamily.heading.value}",
+          "fontWeight": "{typography.fontWeight.medium.value}",
+          "fontSize": "{typography.fontSize.sm.value}",
+          "lineHeight": "{typography.lineHeight.normal.value}",
+          "letterSpacing": "{typography.letterSpacing.wide.value}"
+        },
+        "type": "typography",
+        "description": "Medium label - 14px/Medium/Ubuntu"
+      },
+      "small": {
+        "value": {
+          "fontFamily": "{typography.fontFamily.heading.value}",
+          "fontWeight": "{typography.fontWeight.medium.value}",
+          "fontSize": "{typography.fontSize.xs.value}",
+          "lineHeight": "{typography.lineHeight.normal.value}",
+          "letterSpacing": "{typography.letterSpacing.wider.value}"
+        },
+        "type": "typography",
+        "description": "Small label - 12px/Medium/Ubuntu"
+      }
+    },
+    "caption": {
+      "value": {
+        "fontFamily": "{typography.fontFamily.body.value}",
+        "fontWeight": "{typography.fontWeight.regular.value}",
+        "fontSize": "{typography.fontSize.xs.value}",
+        "lineHeight": "{typography.lineHeight.normal.value}",
+        "letterSpacing": "{typography.letterSpacing.normal.value}"
+      },
+      "type": "typography",
+      "description": "Caption text - 12px/Regular/Rokkitt"
+    },
+    "overline": {
+      "value": {
+        "fontFamily": "{typography.fontFamily.heading.value}",
+        "fontWeight": "{typography.fontWeight.semibold.value}",
+        "fontSize": "{typography.fontSize.xs.value}",
+        "lineHeight": "{typography.lineHeight.normal.value}",
+        "letterSpacing": "{typography.letterSpacing.widest.value}",
+        "textTransform": "uppercase"
+      },
+      "type": "typography",
+      "description": "Overline/eyebrow text - 12px/Semibold/Ubuntu/Uppercase"
+    },
+    "code": {
+      "inline": {
+        "value": {
+          "fontFamily": "{typography.fontFamily.mono.value}",
+          "fontWeight": "{typography.fontWeight.regular.value}",
+          "fontSize": "{typography.fontSize.sm.value}",
+          "lineHeight": "{typography.lineHeight.normal.value}"
+        },
+        "type": "typography",
+        "description": "Inline code - 14px/Regular/Mono"
+      },
+      "block": {
+        "value": {
+          "fontFamily": "{typography.fontFamily.mono.value}",
+          "fontWeight": "{typography.fontWeight.regular.value}",
+          "fontSize": "{typography.fontSize.sm.value}",
+          "lineHeight": "{typography.lineHeight.relaxed.value}"
+        },
+        "type": "typography",
+        "description": "Code block - 14px/Regular/Mono"
+      }
+    }
+  }
+}

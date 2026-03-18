@@ -1,0 +1,21 @@
+# Nukoder DS Refactor + App Screens
+
+## Phase 1 — Refactor
+- [x] Create `src/Nukoder_DS/index.jsx` — tokens (dark + light), ThemeContext, all primitives (Ico, Badge, Av, IBox, PATHS, BADGE)
+- [x] Refactor `src/App.jsx` — remove inline token/primitive definitions, import from Nukoder_DS (DS viewer always dark)
+- [x] Update `src/main.jsx` — shell toggle between DS viewer and App screens
+
+## Phase 2 — Nukodes_App Screens
+- [x] Create `src/Nukodes_App.jsx` with:
+  - [x] Phone-frame shell + bottom tab bar (5 tabs)
+  - [x] Dark/light theme toggle
+  - [x] **Dashboard** — greeting, cash position card, 3 stat tiles, recent activity list
+  - [x] **Products** — filter tabs, product list rows with badges
+  - [x] **Invoices** — filter tabs, grouped list (Today/Yesterday) with badges
+  - [x] **Customers** — avatar list with name, phone, balance
+  - [x] **Settings** — profile card + settings rows (toggles, chevrons, values)
+
+## Phase 3 — Verify
+- [x] Check hot-reload works for both DS viewer and App screens
+- [x] Verify light mode tokens look correct
+- [x] Verify all 5 screens render without errors

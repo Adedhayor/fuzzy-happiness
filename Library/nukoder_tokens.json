@@ -1,0 +1,179 @@
+{
+  "color": {
+    "brand": {
+      "primary": {
+        "value": "#2323FF",
+        "type": "color",
+        "description": "Electric Blue - Main brand color"
+      },
+      "secondary": {
+        "value": "#0A0F2A",
+        "type": "color",
+        "description": "Deep Tech Navy - Secondary brand color"
+      }
+    },
+    "accent": {
+      "cyan": {
+        "value": "#00E5FF",
+        "type": "color",
+        "description": "Cyber Cyan"
+      },
+      "green": {
+        "value": "#30FF71",
+        "type": "color",
+        "description": "Neon Growth"
+      },
+      "yellow": {
+        "value": "#E2E800",
+        "type": "color",
+        "description": "Volt Yellow"
+      }
+    },
+    "neutral": {
+      "black": {
+        "value": "#0A0A0C",
+        "type": "color",
+        "description": "Carbon Black"
+      },
+      "grey": {
+        "900": {
+          "value": "#1A1D24",
+          "type": "color",
+          "description": "Graphite Grey"
+        },
+        "800": {
+          "value": "#2D303B",
+          "type": "color",
+          "description": "Steel Grey"
+        },
+        "300": {
+          "value": "#BFC3CC",
+          "type": "color",
+          "description": "Mist Grey"
+        }
+      },
+      "white": {
+        "100": {
+          "value": "#F5F7FA",
+          "type": "color",
+          "description": "Cloud White"
+        },
+        "pure": {
+          "value": "#FFFFFF",
+          "type": "color",
+          "description": "Pure White"
+        }
+      }
+    },
+    "semantic": {
+      "background": {
+        "primary": {
+          "value": "#0A0A0C",
+          "type": "color"
+        },
+        "secondary": {
+          "value": "#1A1D24",
+          "type": "color"
+        },
+        "tertiary": {
+          "value": "#2D303B",
+          "type": "color"
+        }
+      },
+      "surface": {
+        "default": {
+          "value": "#1A1D24",
+          "type": "color"
+        },
+        "elevated": {
+          "value": "#2D303B",
+          "type": "color"
+        }
+      },
+      "text": {
+        "primary": {
+          "value": "#FFFFFF",
+          "type": "color"
+        },
+        "secondary": {
+          "value": "#BFC3CC",
+          "type": "color"
+        },
+        "inverse": {
+          "value": "#0A0A0C",
+          "type": "color"
+        },
+        "brand": {
+          "value": "#2323FF",
+          "type": "color"
+        }
+      },
+      "border": {
+        "default": {
+          "value": "#2D303B",
+          "type": "color"
+        },
+        "subtle": {
+          "value": "#1A1D24",
+          "type": "color"
+        },
+        "strong": {
+          "value": "#BFC3CC",
+          "type": "color"
+        },
+        "brand": {
+          "value": "#2323FF",
+          "type": "color"
+        }
+      },
+      "action": {
+        "primary": {
+          "default": {
+            "value": "#2323FF",
+            "type": "color"
+          },
+          "hover": {
+            "value": "#1B1BCC",
+            "type": "color"
+          },
+          "pressed": {
+            "value": "#131399",
+            "type": "color"
+          }
+        },
+        "secondary": {
+          "default": {
+            "value": "#0A0F2A",
+            "type": "color"
+          },
+          "hover": {
+            "value": "#141A40",
+            "type": "color"
+          },
+          "pressed": {
+            "value": "#0A0F2A",
+            "type": "color"
+          }
+        }
+      },
+      "feedback": {
+        "success": {
+          "value": "#30FF71",
+          "type": "color"
+        },
+        "warning": {
+          "value": "#E2E800",
+          "type": "color"
+        },
+        "error": {
+          "value": "#FF3030",
+          "type": "color"
+        },
+        "info": {
+          "value": "#00E5FF",
+          "type": "color"
+        }
+      }
+    }
+  }
+}

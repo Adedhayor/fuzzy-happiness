@@ -1,0 +1,41 @@
+# Nukoder Design System & Mobile App Walkthrough
+
+I have successfully consolidated the design system into a unified library and built a multi-screen mobile application prototype to showcase the components in action.
+
+## Key Accomplishments
+
+### 1. Unified Design System (`src/Nukoder_DS`)
+The design system is now isolated in its own folder, providing a single source of truth for:
+- **Tokens:** Comprehensive dark and light theme definitions.
+- **Primitives:** Shared components like [Ico](file:///Users/Adedayo/.gemini/antigravity/scratch/ds-preview/src/Nukoder_DS/index.jsx#86-94), [Badge](file:///Users/Adedayo/.gemini/antigravity/scratch/ds-preview/src/Nukoder_DS/index.jsx#95-109), [Av](file:///Users/Adedayo/.gemini/antigravity/scratch/ds-preview/src/Nukoder_DS/index.jsx#110-124) (Avatar), and [IBox](file:///Users/Adedayo/.gemini/antigravity/scratch/ds-preview/src/Nukoder_DS/index.jsx#125-136).
+- **Theme Provider:** A React context that manages global theme state.
+
+### 2. Mobile App Prototype ([src/Nukodes_App.jsx](file:///Users/Adedayo/.gemini/antigravity/scratch/ds-preview/src/Nukodes_App.jsx))
+A high-fidelity mobile prototype featuring:
+- **Phone Frame:** A premium container representing a modern mobile device.
+- **5 Core Screens:** Dashboard, Products, Invoices, Customers, and Settings.
+- **Bottom Navigation:** A smooth tab bar for switching between sections.
+- **Theme Support:** Global light/dark mode toggle accessible from Settings.
+
+### 3. Application Selector ([src/main.jsx](file:///Users/Adedayo/.gemini/antigravity/scratch/ds-preview/src/main.jsx))
+A non-destructive entry point that allows you to toggle between the **DS Reference** and the **Mobile App**.
+
+## Visual Demonstration
+
+````carousel
+![Mobile App Dashboard](/Users/Adedayo/.gemini/antigravity/brain/0ffe1fb0-3ad3-40e3-bd06-e11dfed25be6/.system_generated/click_feedback/click_feedback_1772973849448.png)
+<!-- slide -->
+![Mobile App Settings & Theme Toggle](/Users/Adedayo/.gemini/antigravity/brain/0ffe1fb0-3ad3-40e3-bd06-e11dfed25be6/.system_generated/click_feedback/click_feedback_1772973875445.png)
+<!-- slide -->
+![DS Reference View Switcher](/Users/Adedayo/.gemini/antigravity/brain/0ffe1fb0-3ad3-40e3-bd06-e11dfed25be6/.system_generated/click_feedback/click_feedback_1772973884852.png)
+````
+
+### Verification Recording
+Watch the full verification flow including theme toggling and view switching:
+![Verification Flow](/Users/Adedayo/.gemini/antigravity/brain/0ffe1fb0-3ad3-40e3-bd06-e11dfed25be6/verify_ds_and_app_1772973833772.webp)
+
+## How to Test
+1.  Ensure your dev server is running (`npm run dev`).
+2.  Open [http://localhost:5173/](http://localhost:5173/).
+3.  Use the top floating selector to switch between the component library and the app prototype.
+4.  Navigate through the mobile app tabs and try the light/dark mode toggle in Settings.
