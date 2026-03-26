@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Welcome to Nukodes</title>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Rokkitt:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!--[if mso]>
+  <noscript><xml><o:OfficeDocumentSettings><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml></noscript>
+  <![endif]-->
+  <style>
+    @media only screen and (max-width: 600px) {
+      .email-wrapper  { padding: 0 !important; }
+      .email-card     { width: 100% !important; border-radius: 0 !important; }
+      .pad            { padding-left: 24px !important; padding-right: 24px !important; }
+      .pad-header     { padding: 28px 24px 24px !important; }
+      .pad-hero       { padding: 0 24px 36px !important; }
+      .pad-body       { padding: 32px 24px !important; }
+      .pad-footer     { padding: 20px 24px !important; }
+      .hero-h1        { font-size: 26px !important; line-height: 1.2 !important; }
+      .cta-btn        { display: block !important; width: 100% !important; }
+      .cta-td         { display: block !important; width: 100% !important; border-radius: 80px !important; }
+    }
+  </style>
+</head>
+<body style="margin:0;padding:0;background-color:#F0F0F5;font-family:'Rokkitt',Georgia,'Times New Roman',serif;">
+
+  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#F0F0F5;min-width:100%;">
+    <tr><td align="center" class="email-wrapper" style="padding:32px 16px 48px;">
+
+      <!-- Card -->
+      <table class="email-card" width="600" cellpadding="0" cellspacing="0" border="0" style="max-width:600px;width:100%;border-radius:20px;overflow:hidden;box-shadow:0 4px 32px rgba(0,0,0,0.12);">
+
+        <!-- ── HEADER ── -->
+        <tr>
+          <td class="pad-header" style="background-color:#0A0A0C;padding:40px 48px 32px;text-align:center;">
+            <table cellpadding="0" cellspacing="0" border="0" align="center">
+              <tr>
+                <td style="background-color:#1A1D24;border:1px solid rgba(255,255,255,0.1);border-radius:16px;width:56px;height:56px;text-align:center;vertical-align:middle;">
+                  <span style="font-family:'Oswald',Impact,Arial,sans-serif;font-size:28px;font-weight:700;color:#FFFFFF;letter-spacing:-1px;line-height:56px;">N</span>
+                </td>
+              </tr>
+            </table>
+            <div style="margin-top:14px;">
+              <span style="font-family:'Rokkitt',Georgia,serif;font-size:22px;font-weight:700;color:#FFFFFF;letter-spacing:0.5px;">Nukodes</span>
+            </div>
+            <div style="margin-top:4px;">
+              <span style="font-family:'Rokkitt',Georgia,serif;font-size:12px;color:#9B9FAF;letter-spacing:1.5px;text-transform:uppercase;">Business Finance</span>
+            </div>
+          </td>
+        </tr>
+
+        <!-- ── HERO ── -->
+        <tr>
+          <td class="pad-hero" style="background-color:#0A0A0C;padding:0 48px 48px;text-align:center;border-bottom:1px solid #1A1D24;">
+            <h1 class="hero-h1" style="font-family:'Rokkitt',Georgia,serif;font-size:32px;font-weight:700;color:#FFFFFF;margin:0 0 12px;line-height:1.15;letter-spacing:-0.5px;">
+              Welcome to Nukodes,<br>{{firstName}}! 🎉
+            </h1>
+            <p style="font-family:'Rokkitt',Georgia,serif;font-size:15px;color:#9B9FAF;margin:0 0 28px;line-height:1.6;">
+              Your business finance account is ready. Here's what you can do right now.
+            </p>
+            <table cellpadding="0" cellspacing="0" border="0" align="center" style="width:100%;max-width:280px;margin:0 auto;">
+              <tr>
+                <td class="cta-td" style="background-color:#2323FF;border-radius:80px;text-align:center;">
+                  <a class="cta-btn" href="{{dashboardUrl}}" style="display:inline-block;padding:14px 36px;font-family:'Rokkitt',Georgia,serif;font-size:16px;font-weight:700;color:#FFFFFF;text-decoration:none;letter-spacing:0.2px;">
+                    Go to Dashboard →
+                  </a>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- ── BODY ── -->
+        <tr>
+          <td class="pad-body" style="background-color:#FFFFFF;padding:40px 48px;">
+            <h2 style="font-family:'Rokkitt',Georgia,serif;font-size:19px;font-weight:700;color:#0A0A0C;margin:0 0 24px;letter-spacing:-0.3px;">
+              Here's what you can do with Nukodes
+            </h2>
+
+            <!-- Features -->
+            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:20px;">
+              <tr>
+                <td width="48" valign="top" style="padding-top:2px;">
+                  <table cellpadding="0" cellspacing="0" border="0"><tr>
+                    <td style="background-color:#E8E8FF;border-radius:10px;width:40px;height:40px;text-align:center;vertical-align:middle;">
+                      <span style="font-size:20px;line-height:40px;">📄</span>
+                    </td>
+                  </tr></table>
+                </td>
+                <td style="padding-left:14px;" valign="top">
+                  <div style="font-family:'Rokkitt',Georgia,serif;font-size:15px;font-weight:700;color:#0A0A0C;margin-bottom:3px;">Professional Invoicing</div>
+                  <div style="font-family:'Rokkitt',Georgia,serif;font-size:13px;color:#9B9FAF;line-height:1.6;">Create, send, and track invoices. Get paid faster with Nukodes payment links.</div>
+                </td>
+              </tr>
+            </table>
+
+            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:20px;">
+              <tr>
+                <td width="48" valign="top" style="padding-top:2px;">
+                  <table cellpadding="0" cellspacing="0" border="0"><tr>
+                    <td style="background-color:#E8E8FF;border-radius:10px;width:40px;height:40px;text-align:center;vertical-align:middle;">
+                      <span style="font-size:20px;line-height:40px;">💰</span>
+                    </td>
+                  </tr></table>
+                </td>
+                <td style="padding-left:14px;" valign="top">
+                  <div style="font-family:'Rokkitt',Georgia,serif;font-size:15px;font-weight:700;color:#0A0A0C;margin-bottom:3px;">Cash Flow Visibility</div>
+                  <div style="font-family:'Rokkitt',Georgia,serif;font-size:13px;color:#9B9FAF;line-height:1.6;">See your cash on hand, revenue, and expenses in real time across all your accounts.</div>
+                </td>
+              </tr>
+            </table>
+
+            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:32px;">
+              <tr>
+                <td width="48" valign="top" style="padding-top:2px;">
+                  <table cellpadding="0" cellspacing="0" border="0"><tr>
+                    <td style="background-color:#E8E8FF;border-radius:10px;width:40px;height:40px;text-align:center;vertical-align:middle;">
+                      <span style="font-size:20px;line-height:40px;">📊</span>
+                    </td>
+                  </tr></table>
+                </td>
+                <td style="padding-left:14px;" valign="top">
+                  <div style="font-family:'Rokkitt',Georgia,serif;font-size:15px;font-weight:700;color:#0A0A0C;margin-bottom:3px;">Expense Tracking</div>
+                  <div style="font-family:'Rokkitt',Georgia,serif;font-size:13px;color:#9B9FAF;line-height:1.6;">Log and categorise every naira spent. Stay on top of your business expenses effortlessly.</div>
+                </td>
+              </tr>
+            </table>
+
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr><td style="border-top:1px solid #F0F0F5;padding-top:24px;">
+                <p style="font-family:'Rokkitt',Georgia,serif;font-size:14px;color:#9B9FAF;margin:0 0 16px;line-height:1.6;">
+                  Need help getting started? Our support team is here for you — just reply to this email or visit our help centre.
+                </p>
+                <p style="font-family:'Rokkitt',Georgia,serif;font-size:14px;color:#0A0A0C;margin:0;line-height:1.6;">
+                  To your business growth,<br><strong>The Nukodes Team</strong>
+                </p>
+              </td></tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- ── FOOTER ── -->
+        <tr>
+          <td class="pad-footer" style="background-color:#F9F9FB;padding:20px 48px;border-top:1px solid #F0F0F5;">
+            <p style="font-family:'Rokkitt',Georgia,serif;font-size:12px;color:#B8B8C7;margin:0 0 6px;text-align:center;line-height:1.7;">
+              You're receiving this because you created a Nukodes account.<br>
+              <a href="{{unsubscribeUrl}}" style="color:#9B9FAF;text-decoration:underline;">Unsubscribe</a> &nbsp;·&nbsp;
+              <a href="{{privacyUrl}}" style="color:#9B9FAF;text-decoration:underline;">Privacy Policy</a> &nbsp;·&nbsp;
+              <a href="{{termsUrl}}" style="color:#9B9FAF;text-decoration:underline;">Terms</a>
+            </p>
+            <p style="font-family:'Rokkitt',Georgia,serif;font-size:11px;color:#CDCFD7;margin:0;text-align:center;">
+              © 2026 Nukodes. All rights reserved. · Lagos, Nigeria
+            </p>
+          </td>
+        </tr>
+
+      </table>
+    </td></tr>
+  </table>
+</body>
+</html>

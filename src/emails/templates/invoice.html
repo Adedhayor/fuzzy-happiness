@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Invoice from {{businessName}}</title>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Rokkitt:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!--[if mso]>
+  <noscript><xml><o:OfficeDocumentSettings><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml></noscript>
+  <![endif]-->
+  <style>
+    @media only screen and (max-width: 600px) {
+      .email-wrapper  { padding: 0 !important; }
+      .email-card     { width: 100% !important; border-radius: 0 !important; }
+      .pad-header     { padding: 24px 20px !important; }
+      .pad-meta       { padding: 14px 20px !important; }
+      .pad-body       { padding: 24px 20px 0 !important; }
+      .pad-cta        { padding: 24px 20px 32px !important; }
+      .pad-footer-inv { padding: 20px !important; }
+      /* Stack invoice header cols */
+      .inv-col-left  { display: block !important; width: 100% !important; }
+      .inv-col-right { display: block !important; width: 100% !important; text-align: left !important; padding-top: 16px !important; }
+      /* Stack meta row cells */
+      .meta-cell     { display: block !important; width: 100% !important; padding: 6px 0 !important; text-align: left !important; }
+      /* Line items: hide Qty column */
+      .qty-hdr       { display: none !important; font-size: 0 !important; max-height: 0 !important; overflow: hidden !important; }
+      .qty-cell      { display: none !important; font-size: 0 !important; max-height: 0 !important; overflow: hidden !important; }
+      /* Totals: collapse spacer, go full-width */
+      .totals-spacer { display: none !important; width: 0 !important; overflow: hidden !important; }
+      .totals-td     { width: 100% !important; }
+      /* CTA button */
+      .cta-btn       { display: block !important; width: 100% !important; }
+      .cta-td        { display: block !important; width: 100% !important; border-radius: 80px !important; }
+    }
+  </style>
+</head>
+<body style="margin:0;padding:0;background-color:#F0F0F5;font-family:'Rokkitt',Georgia,'Times New Roman',serif;">
+
+  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#F0F0F5;min-width:100%;">
+    <tr><td align="center" class="email-wrapper" style="padding:32px 16px 48px;">
+
+      <table class="email-card" width="600" cellpadding="0" cellspacing="0" border="0" style="max-width:600px;width:100%;border-radius:20px;overflow:hidden;box-shadow:0 4px 32px rgba(0,0,0,0.12);">
+
+        <!-- ── HEADER ── -->
+        <tr>
+          <td class="pad-header" style="background-color:#0A0A0C;padding:32px 48px;">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td class="inv-col-left" valign="top">
+                  <!-- Business logo placeholder -->
+                  <table cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                      <td style="background-color:#1A1D24;border:1px solid rgba(255,255,255,0.1);border-radius:14px;width:48px;height:48px;text-align:center;vertical-align:middle;">
+                        <span style="font-family:'Oswald',Impact,Arial,sans-serif;font-size:20px;font-weight:700;color:#FFFFFF;line-height:48px;">{{businessInitials}}</span>
+                      </td>
+                    </tr>
+                  </table>
+                  <div style="margin-top:10px;">
+                    <div style="font-family:'Rokkitt',Georgia,serif;font-size:16px;font-weight:700;color:#FFFFFF;">{{businessName}}</div>
+                    <div style="font-family:'Rokkitt',Georgia,serif;font-size:12px;color:#9B9FAF;margin-top:2px;">{{businessEmail}}</div>
+                  </div>
+                </td>
+                <td class="inv-col-right" valign="top" align="right">
+                  <div style="font-family:'Rokkitt',Georgia,serif;font-size:11px;color:#9B9FAF;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:6px;">Invoice</div>
+                  <div style="font-family:'Oswald',Impact,'Arial Narrow',Arial,sans-serif;font-size:22px;font-weight:700;color:#FFFFFF;">{{invoiceNumber}}</div>
+                  <div style="margin-top:10px;display:inline-block;">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                      <tr>
+                        <td style="background-color:{{statusBg}};border-radius:80px;padding:4px 12px;text-align:center;">
+                          <span style="font-family:'Rokkitt',Georgia,serif;font-size:11px;font-weight:700;color:{{statusColor}};text-transform:uppercase;letter-spacing:0.8px;">{{status}}</span>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- ── META ROW ── -->
+        <tr>
+          <td class="pad-meta" style="background-color:#1A1D24;padding:16px 48px;">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td class="meta-cell">
+                  <div style="font-family:'Rokkitt',Georgia,serif;font-size:11px;color:#9B9FAF;text-transform:uppercase;letter-spacing:1px;margin-bottom:3px;">Issue Date</div>
+                  <div style="font-family:'Rokkitt',Georgia,serif;font-size:14px;color:#FFFFFF;">{{issueDate}}</div>
+                </td>
+                <td class="meta-cell">
+                  <div style="font-family:'Rokkitt',Georgia,serif;font-size:11px;color:#9B9FAF;text-transform:uppercase;letter-spacing:1px;margin-bottom:3px;">Due Date</div>
+                  <div style="font-family:'Rokkitt',Georgia,serif;font-size:14px;color:{{dueDateColor}};">{{dueDate}}</div>
+                </td>
+                <td class="meta-cell" align="right">
+                  <div style="font-family:'Rokkitt',Georgia,serif;font-size:11px;color:#9B9FAF;text-transform:uppercase;letter-spacing:1px;margin-bottom:3px;">Billed To</div>
+                  <div style="font-family:'Rokkitt',Georgia,serif;font-size:14px;color:#FFFFFF;">{{clientName}}</div>
+                  <div style="font-family:'Rokkitt',Georgia,serif;font-size:12px;color:#9B9FAF;">{{clientEmail}}</div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- ── BODY ── -->
+        <tr>
+          <td class="pad-body" style="background-color:#FFFFFF;padding:36px 48px 0;">
+
+            <!-- Line items header -->
+            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:8px;">
+              <tr>
+                <td style="font-family:'Rokkitt',Georgia,serif;font-size:11px;font-weight:700;color:#9B9FAF;text-transform:uppercase;letter-spacing:1px;padding-bottom:10px;border-bottom:2px solid #F0F0F5;" width="50%">Description</td>
+                <td class="qty-hdr" style="font-family:'Rokkitt',Georgia,serif;font-size:11px;font-weight:700;color:#9B9FAF;text-transform:uppercase;letter-spacing:1px;padding-bottom:10px;border-bottom:2px solid #F0F0F5;text-align:center;" width="15%">Qty</td>
+                <td style="font-family:'Rokkitt',Georgia,serif;font-size:11px;font-weight:700;color:#9B9FAF;text-transform:uppercase;letter-spacing:1px;padding-bottom:10px;border-bottom:2px solid #F0F0F5;text-align:right;" width="35%">Amount</td>
+              </tr>
+            </table>
+
+            <!-- Line items — repeated per item -->
+            {{#each lineItems}}
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td style="padding:12px 0;border-bottom:1px solid #F9F9FB;" width="50%">
+                  <div style="font-family:'Rokkitt',Georgia,serif;font-size:14px;color:#0A0A0C;font-weight:600;">{{this.name}}</div>
+                  <div style="font-family:'Rokkitt',Georgia,serif;font-size:12px;color:#9B9FAF;margin-top:2px;">{{this.description}}</div>
+                </td>
+                <td class="qty-cell" style="padding:12px 0;border-bottom:1px solid #F9F9FB;text-align:center;" width="15%">
+                  <span style="font-family:'Rokkitt',Georgia,serif;font-size:14px;color:#9B9FAF;">{{this.qty}}</span>
+                </td>
+                <td style="padding:12px 0;border-bottom:1px solid #F9F9FB;text-align:right;" width="35%">
+                  <span style="font-family:'Oswald',Impact,'Arial Narrow',Arial,sans-serif;font-size:15px;color:#0A0A0C;">₦ {{this.amount}}</span>
+                </td>
+              </tr>
+            </table>
+            {{/each}}
+
+            <!-- Totals -->
+            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top:20px;">
+              <tr>
+                <td class="totals-spacer" width="55%"></td>
+                <td class="totals-td" width="45%">
+                  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                      <td style="padding:6px 0;">
+                        <span style="font-family:'Rokkitt',Georgia,serif;font-size:14px;color:#9B9FAF;">Subtotal</span>
+                      </td>
+                      <td style="text-align:right;padding:6px 0;">
+                        <span style="font-family:'Oswald',Impact,'Arial Narrow',Arial,sans-serif;font-size:14px;color:#0A0A0C;">₦ {{subtotal}}</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="padding:6px 0;">
+                        <span style="font-family:'Rokkitt',Georgia,serif;font-size:14px;color:#9B9FAF;">VAT (7.5%)</span>
+                      </td>
+                      <td style="text-align:right;padding:6px 0;">
+                        <span style="font-family:'Oswald',Impact,'Arial Narrow',Arial,sans-serif;font-size:14px;color:#0A0A0C;">₦ {{vatAmount}}</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="padding:12px 0 4px;border-top:2px solid #0A0A0C;">
+                        <span style="font-family:'Rokkitt',Georgia,serif;font-size:16px;font-weight:700;color:#0A0A0C;">Total</span>
+                      </td>
+                      <td style="text-align:right;padding:12px 0 4px;border-top:2px solid #0A0A0C;">
+                        <span style="font-family:'Oswald',Impact,'Arial Narrow',Arial,sans-serif;font-size:22px;font-weight:700;color:#0A0A0C;">₦ {{total}}</span>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+
+          </td>
+        </tr>
+
+        <!-- ── PAY CTA ── -->
+        <tr>
+          <td class="pad-cta" style="background-color:#FFFFFF;padding:32px 48px 40px;">
+            <table cellpadding="0" cellspacing="0" border="0" align="center" style="width:100%;">
+              <tr>
+                <td class="cta-td" style="background-color:#2323FF;border-radius:80px;text-align:center;">
+                  <a class="cta-btn" href="{{paymentUrl}}" style="display:block;padding:15px 40px;font-family:'Rokkitt',Georgia,serif;font-size:16px;font-weight:700;color:#FFFFFF;text-decoration:none;letter-spacing:0.2px;">
+                    Pay Now — ₦ {{total}}
+                  </a>
+                </td>
+              </tr>
+            </table>
+            <p style="font-family:'Rokkitt',Georgia,serif;font-size:12px;color:#B8B8C7;text-align:center;margin:12px 0 0;">
+              Or pay via bank transfer · Account details below
+            </p>
+
+            <!-- Bank details -->
+            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top:20px;">
+              <tr>
+                <td style="background-color:#F9F9FB;border-radius:12px;border:1px solid #F0F0F5;padding:16px 20px;">
+                  <div style="font-family:'Rokkitt',Georgia,serif;font-size:11px;color:#9B9FAF;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;">Bank Transfer Details</div>
+                  <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                    <tr>
+                      <td style="padding:3px 0;"><span style="font-family:'Rokkitt',Georgia,serif;font-size:13px;color:#9B9FAF;">Bank:</span></td>
+                      <td style="text-align:right;padding:3px 0;"><span style="font-family:'Rokkitt',Georgia,serif;font-size:13px;color:#0A0A0C;font-weight:600;">{{bankName}}</span></td>
+                    </tr>
+                    <tr>
+                      <td style="padding:3px 0;"><span style="font-family:'Rokkitt',Georgia,serif;font-size:13px;color:#9B9FAF;">Account Name:</span></td>
+                      <td style="text-align:right;padding:3px 0;"><span style="font-family:'Rokkitt',Georgia,serif;font-size:13px;color:#0A0A0C;font-weight:600;">{{accountName}}</span></td>
+                    </tr>
+                    <tr>
+                      <td style="padding:3px 0;"><span style="font-family:'Rokkitt',Georgia,serif;font-size:13px;color:#9B9FAF;">Account Number:</span></td>
+                      <td style="text-align:right;padding:3px 0;"><span style="font-family:'Oswald',Impact,'Arial Narrow',Arial,sans-serif;font-size:15px;color:#0A0A0C;font-weight:600;letter-spacing:1px;">{{accountNumber}}</span></td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- ── NOTE ── -->
+        {{#if note}}
+        <tr>
+          <td style="background-color:#FFFFFF;padding:0 48px 32px;border-top:1px solid #F0F0F5;">
+            <div style="font-family:'Rokkitt',Georgia,serif;font-size:12px;color:#9B9FAF;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">Note</div>
+            <div style="font-family:'Rokkitt',Georgia,serif;font-size:14px;color:#9B9FAF;line-height:1.6;">{{note}}</div>
+          </td>
+        </tr>
+        {{/if}}
+
+        <!-- ── FOOTER ── -->
+        <tr>
+          <td class="pad-footer-inv" style="background-color:#0A0A0C;padding:24px 48px;">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td>
+                  <span style="font-family:'Rokkitt',Georgia,serif;font-size:13px;color:#FFFFFF;font-weight:600;">{{businessName}}</span>
+                  <div style="font-family:'Rokkitt',Georgia,serif;font-size:12px;color:#9B9FAF;margin-top:3px;">{{businessAddress}}</div>
+                </td>
+                <td align="right" valign="top">
+                  <div style="font-family:'Rokkitt',Georgia,serif;font-size:11px;color:#9B9FAF;margin-bottom:3px;">Powered by</div>
+                  <div style="font-family:'Rokkitt',Georgia,serif;font-size:13px;color:#4C4CFF;font-weight:700;">Nukodes</div>
+                </td>
+              </tr>
+            </table>
+            <div style="border-top:1px solid #1A1D24;margin-top:16px;padding-top:14px;">
+              <p style="font-family:'Rokkitt',Georgia,serif;font-size:11px;color:#9B9FAF;margin:0;text-align:center;line-height:1.6;">
+                This invoice was sent via Nukodes · Questions? Reply to this email or contact {{businessEmail}}
+              </p>
+            </div>
+          </td>
+        </tr>
+
+      </table>
+    </td></tr>
+  </table>
+</body>
+</html>
