@@ -165,3 +165,442 @@ export const ImgIco = () => <Ico d="M21 15l-5-5L5 20M3 3h18a2 2 0 012 2v14a2 2 0
 
 // Kept for backward compatibility with older Chevron usage in App.jsx
 export const Chevron = ChevR;
+
+// ── Date helpers (internal) ───────────────────────────────────────────────────
+const MONTHS_LG  = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+const MONTHS_SM  = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+const DAY_LABELS = ["sun","mon","tue","wed","thu","fri","sat"];
+
+function _buildCal(year, month) {
+    const first = new Date(year, month, 1).getDay();
+    const days  = new Date(year, month + 1, 0).getDate();
+    return [...Array(first).fill(null), ...Array.from({ length: days }, (_, i) => i + 1)];
+}
+function _fmtDate(d) {
+    if (!d) return "";
+    return `${String(d.getDate()).padStart(2, "0")} ${MONTHS_SM[d.getMonth()]} ${d.getFullYear()}`;
+}
+function _fmtShort(d) {
+    if (!d) return "";
+    return `${d.getDate()} ${MONTHS_SM[d.getMonth()]}`;
+}
+function _sameDay(a, b) {
+    return a && b &&
+        a.getFullYear() === b.getFullYear() &&
+        a.getMonth()    === b.getMonth()    &&
+        a.getDate()     === b.getDate();
+}
+function _prevMo(y, m) { return m === 0  ? [y - 1, 11] : [y, m - 1]; }
+function _nextMo(y, m) { return m === 11 ? [y + 1,  0] : [y, m + 1]; }
+
+// Light-mode sheet tokens — matches Figma overlay design (always light regardless of app theme)
+const SH = {
+    bg:        "#FFFFFF",
+    text:      "#0A0A0C",
+    muted:     "#4B476B",
+    border:    "#D5D6DD",
+    action:    "#2323FF",
+    rangeFill: "rgba(232,232,255,0.4)",
+    selCircle: "rgba(35,35,255,0.15)",
+};
+
+// ── CalendarGrid (internal) ───────────────────────────────────────────────────
+function _CalGrid({ year, month, selected, rangeFrom, rangeTo, onSelect, onPrev, onNext }) {
+    const cells = _buildCal(year, month);
+    return (
+        <div style={{ padding: "0 12px" }}>
+            {/* Month/Year nav */}
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 16, padding: "8px 0 16px" }}>
+                <button onClick={onPrev} style={{ width: 36, height: 36, borderRadius: "50%", border: "none", background: "transparent", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                    <Ico d="M15 18l-6-6 6-6" s={20} stroke={1.8} color={SH.text} />
+                </button>
+                <span style={{ fontFamily: "'Rokkitt',serif", fontSize: 20, fontWeight: 600, color: SH.text, letterSpacing: "-0.4px", minWidth: 148, textAlign: "center" }}>
+                    {MONTHS_LG[month]} {year}
+                </span>
+                <button onClick={onNext} style={{ width: 36, height: 36, borderRadius: "50%", border: "none", background: "transparent", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                    <Ico d="M9 18l6-6-6-6" s={20} stroke={1.8} color={SH.text} />
+                </button>
+            </div>
+            {/* Day headers */}
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(7, 1fr)", marginBottom: 8 }}>
+                {DAY_LABELS.map((d, i) => (
+                    <div key={i} style={{ textAlign: "center", fontFamily: "'Rokkitt',serif", fontSize: 16, color: SH.text, paddingBottom: 4, fontWeight: 400, letterSpacing: "0.16px" }}>
+                        {d}
+                    </div>
+                ))}
+            </div>
+            {/* Day cells */}
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(7, 1fr)", rowGap: 4 }}>
+                {cells.map((day, i) => {
+                    if (!day) return <div key={i} style={{ height: 44 }} />;
+
+                    const thisDate = new Date(year, month, day);
+                    thisDate.setHours(0, 0, 0, 0);
+
+                    const isSel   = _sameDay(thisDate, selected);
+                    const isStart = rangeFrom && _sameDay(thisDate, rangeFrom);
+                    const isEnd   = rangeTo   && _sameDay(thisDate, rangeTo);
+                    const inMid   = rangeFrom && rangeTo && thisDate > rangeFrom && thisDate < rangeTo;
+                    const colIdx  = i % 7;
+
+                    // Range pill fill + radius per cell
+                    let pillBg = "transparent", pillRadius = "0";
+                    if (isStart && isEnd) {
+                        pillBg = SH.rangeFill; pillRadius = "32px";
+                    } else if (isStart) {
+                        pillBg = SH.rangeFill; pillRadius = "32px 8px 8px 32px";
+                    } else if (isEnd) {
+                        pillBg = SH.rangeFill; pillRadius = "8px 32px 32px 8px";
+                    } else if (inMid) {
+                        pillBg = SH.rangeFill;
+                        if (colIdx === 0) pillRadius = "8px 0 0 8px";
+                        else if (colIdx === 6) pillRadius = "0 8px 8px 0";
+                    }
+
+                    const isHighlighted = isSel || isStart || isEnd;
+                    return (
+                        <div key={i} style={{ height: 44, background: pillBg, borderRadius: pillRadius, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                            <button onClick={() => onSelect(thisDate)} style={{
+                                width: 44, height: 44, borderRadius: "50%", border: "none", cursor: "pointer",
+                                background: isHighlighted ? SH.selCircle : "transparent",
+                                color: isHighlighted ? SH.action : SH.text,
+                                fontFamily: "'Rokkitt',serif", fontSize: 20, fontWeight: 600,
+                                letterSpacing: "-0.4px", display: "flex", alignItems: "center", justifyContent: "center",
+                                transition: "background .12s",
+                            }}>
+                                {day}
+                            </button>
+                        </div>
+                    );
+                })}
+            </div>
+        </div>
+    );
+}
+
+// Sheet overlay wrapper (internal)
+function _SheetOverlay({ onClose, children }) {
+    return (
+        <div style={{ position: "fixed", inset: 0, zIndex: 9999, display: "flex", alignItems: "flex-end", justifyContent: "center" }}>
+            <div onClick={onClose} style={{ position: "absolute", inset: 0, background: "rgba(10,10,12,0.7)", backdropFilter: "blur(4px)" }} />
+            <div style={{ position: "relative", width: "100%", maxWidth: 480, background: SH.bg, borderRadius: "38px 38px 0 0", zIndex: 1, paddingBottom: 40, boxShadow: "0px 15px 75px rgba(0,0,0,0.18)" }}>
+                {children}
+            </div>
+        </div>
+    );
+}
+
+// Sheet grabber handle (internal)
+function _Handle() {
+    return (
+        <div style={{ display: "flex", justifyContent: "center", paddingTop: 8, paddingBottom: 0 }}>
+            <div style={{ width: 36, height: 5, borderRadius: 100, background: SH.border }} />
+        </div>
+    );
+}
+
+// Sheet toolbar: X close · centered title · checkmark confirm (internal)
+function _Toolbar({ title, onClose, onConfirm, canConfirm }) {
+    return (
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "4px 16px 10px", position: "relative" }}>
+            <button onClick={onClose} style={{
+                width: 44, height: 44, borderRadius: "50%", border: "none",
+                background: "rgba(0,0,0,0.06)", cursor: "pointer",
+                display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0,
+            }}>
+                <Ico d={PATHS.x} s={18} stroke={2} color="#727272" />
+            </button>
+            <span style={{
+                position: "absolute", left: "50%", transform: "translateX(-50%)",
+                fontFamily: "'Rokkitt',serif", fontSize: 20, fontWeight: 600,
+                color: SH.text, letterSpacing: "-0.4px", whiteSpace: "nowrap", pointerEvents: "none",
+            }}>
+                {title}
+            </span>
+            <button onClick={canConfirm ? onConfirm : undefined} style={{
+                width: 44, height: 44, borderRadius: "50%", border: "none",
+                background: canConfirm ? "rgba(255,255,255,0.65)" : "rgba(0,0,0,0.06)",
+                boxShadow: canConfirm ? "0px 8px 40px rgba(0,0,0,0.12)" : "none",
+                cursor: canConfirm ? "pointer" : "default",
+                display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0,
+                transition: "all .2s", opacity: canConfirm ? 1 : 0.35,
+            }}>
+                <Ico d={PATHS.check} s={18} stroke={2.5} color={SH.action} />
+            </button>
+        </div>
+    );
+}
+
+// Preset pills inside the sheet (internal)
+function _SheetPills({ presets, active, onSelect }) {
+    return (
+        <div style={{ padding: "0 16px 12px", display: "flex", gap: 8, overflowX: "auto", scrollbarWidth: "none" }}>
+            {presets.map((p, i) => (
+                <button key={p} onClick={() => onSelect(i)} style={{
+                    height: 36, padding: "0 12px", borderRadius: 56,
+                    border: `1px solid ${active === i ? SH.action : SH.border}`,
+                    background: active === i ? "rgba(35,35,255,0.08)" : "transparent",
+                    color: active === i ? SH.action : SH.muted,
+                    fontFamily: "'Rokkitt',serif", fontSize: 14,
+                    fontWeight: active === i ? 600 : 400,
+                    cursor: "pointer", whiteSpace: "nowrap",
+                    letterSpacing: "0.28px", transition: "all .15s",
+                }}>
+                    {p}
+                </button>
+            ))}
+        </div>
+    );
+}
+
+// ── FilterPills ───────────────────────────────────────────────────────────────
+// Horizontal scrollable pill-tab row. Used on list screens for status filtering.
+export function FilterPills({ tabs = [], active = 0, onSelect, size = "md", T: _T }) {
+    const { T: ctxT } = useTheme();
+    const T = _T || ctxT;
+    const h  = size === "sm" ? 28 : 32;
+    const fs = size === "sm" ? 12 : 13;
+    return (
+        <div style={{ display: "flex", gap: 4, overflowX: "auto", scrollbarWidth: "none" }}>
+            {tabs.map((t, i) => (
+                <button key={t} onClick={() => onSelect?.(i)} style={{
+                    height: h, padding: `0 ${size === "sm" ? 10 : 12}px`,
+                    borderRadius: 80, border: "none", cursor: "pointer",
+                    whiteSpace: "nowrap", transition: "all .15s",
+                    background: active === i ? T.action : "transparent",
+                    color: active === i ? "#fff" : T.muted,
+                    fontFamily: "'Rokkitt',serif", fontSize: fs,
+                    fontWeight: active === i ? 600 : 400,
+                }}>
+                    {t}
+                </button>
+            ))}
+        </div>
+    );
+}
+
+// ── DateInput ─────────────────────────────────────────────────────────────────
+// Form field that opens a date picker bottom sheet. Confirms a single date.
+// Props: label, placeholder, value (Date|null), onChange (Date => void), T
+export function DateInput({ label, placeholder = "Select date", value = null, onChange, T: _T }) {
+    const { T: ctxT } = useTheme();
+    const T = _T || ctxT;
+    const [open, setOpen]   = useState(false);
+    const now               = new Date();
+    const [viewY, setViewY] = useState(value ? value.getFullYear() : now.getFullYear());
+    const [viewM, setViewM] = useState(value ? value.getMonth()    : now.getMonth());
+    const [draft, setDraft] = useState(value);
+
+    function handleConfirm() { if (draft) { onChange?.(draft); setOpen(false); } }
+
+    const quickPick = (offsetDays) => {
+        const d = new Date(); d.setHours(0, 0, 0, 0);
+        d.setDate(d.getDate() + offsetDays);
+        setDraft(d);
+    };
+
+    return (
+        <div>
+            {label && <div style={{ fontFamily: "'Rokkitt',serif", fontSize: 13, color: T.subtle, marginBottom: 6 }}>{label}</div>}
+            {/* Trigger field */}
+            <div onClick={() => setOpen(true)} style={{
+                display: "flex", alignItems: "center", justifyContent: "space-between",
+                height: 48, padding: "0 14px", borderRadius: 12,
+                background: T.surf, border: `1px solid ${open ? T.action : T.el}`,
+                cursor: "pointer", transition: "border-color .15s",
+            }}>
+                <span style={{ fontFamily: "'Rokkitt',serif", fontSize: 15, color: value ? T.text : T.muted }}>
+                    {value ? _fmtDate(value) : placeholder}
+                </span>
+                <Ico d={PATHS.cal} s={18} color={T.muted} />
+            </div>
+
+            {open && (
+                <_SheetOverlay onClose={() => setOpen(false)}>
+                    <_Handle />
+                    <_Toolbar
+                        title="Select Date"
+                        onClose={() => setOpen(false)}
+                        onConfirm={handleConfirm}
+                        canConfirm={!!draft}
+                    />
+                    <_SheetPills
+                        presets={["Today", "Tomorrow", "In 7 days"]}
+                        active={-1}
+                        onSelect={(i) => quickPick([0, 1, 7][i])}
+                    />
+                    <_CalGrid
+                        year={viewY} month={viewM}
+                        selected={draft}
+                        onSelect={setDraft}
+                        onPrev={() => { const [y, m] = _prevMo(viewY, viewM); setViewY(y); setViewM(m); }}
+                        onNext={() => { const [y, m] = _nextMo(viewY, viewM); setViewY(y); setViewM(m); }}
+                    />
+                </_SheetOverlay>
+            )}
+        </div>
+    );
+}
+
+// ── DateRangeFilter ───────────────────────────────────────────────────────────
+// Filter pill trigger that opens a date-range bottom sheet.
+// Presets: Last 7/14/30/60 days. Custom mode: tap From → To on calendar.
+// Props: value ({ from: Date|null, to: Date|null }), onChange, label, T
+export function DateRangeFilter({ value = { from: null, to: null }, onChange, label = "Date Range", T: _T }) {
+    const { T: ctxT } = useTheme();
+    const T = _T || ctxT;
+    const [open, setOpen]       = useState(false);
+    const [activeP, setActiveP] = useState(-1);
+    const [picking, setPicking] = useState("from");
+    const [draft, setDraft]     = useState({ from: value.from, to: value.to });
+    const now = new Date();
+    const [viewY, setViewY]     = useState(now.getFullYear());
+    const [viewM, setViewM]     = useState(now.getMonth());
+
+    const PRESETS = [
+        { label: "Last 7 days",  days: 7  },
+        { label: "Last 14 days", days: 14 },
+        { label: "Last 30 days", days: 30 },
+        { label: "Last 60 days", days: 60 },
+        { label: "Custom",       days: null },
+    ];
+    const isCustom = activeP === 4;
+    const hasValue = !!(value.from || value.to);
+
+    function handlePresetSelect(i) {
+        setActiveP(i);
+        const p = PRESETS[i];
+        if (p.days !== null) {
+            const to = new Date(); to.setHours(0, 0, 0, 0);
+            const from = new Date(to); from.setDate(from.getDate() - p.days);
+            setDraft({ from, to });
+        } else {
+            setDraft({ from: null, to: null });
+            setPicking("from");
+        }
+    }
+
+    function handleDateSelect(date) {
+        if (picking === "from") {
+            setDraft({ from: date, to: null });
+            setPicking("to");
+        } else {
+            const ordered = draft.from && date < draft.from
+                ? { from: date, to: draft.from }
+                : { from: draft.from, to: date };
+            setDraft(ordered);
+            setPicking("from");
+        }
+    }
+
+    function handleApply() { onChange?.({ from: draft.from, to: draft.to }); setOpen(false); }
+    function handleClear()  { const empty = { from: null, to: null }; setDraft(empty); setActiveP(-1); onChange?.(empty); setOpen(false); }
+
+    // Trigger label
+    const triggerText = value.from
+        ? value.to && !_sameDay(value.from, value.to)
+            ? `${_fmtShort(value.from)} – ${_fmtShort(value.to)}`
+            : _fmtShort(value.from)
+        : label;
+
+    return (
+        <div>
+            {/* Trigger pill — uses app theme */}
+            <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+                <button onClick={() => setOpen(true)} style={{
+                    height: 36, padding: "0 12px 0 10px", borderRadius: 80,
+                    border: `1px solid ${hasValue ? T.action : T.el}`,
+                    background: hasValue ? "rgba(35,35,255,0.1)" : "transparent",
+                    color: hasValue ? T.a400 : T.muted,
+                    display: "flex", alignItems: "center", gap: 6,
+                    fontFamily: "'Rokkitt',serif", fontSize: 13,
+                    cursor: "pointer", whiteSpace: "nowrap",
+                }}>
+                    <Ico d={PATHS.cal} s={14} color="currentColor" />
+                    {triggerText}
+                </button>
+                {hasValue && (
+                    <button onClick={(e) => { e.stopPropagation(); handleClear(); }} style={{
+                        width: 22, height: 22, borderRadius: "50%", border: "none",
+                        background: T.el, cursor: "pointer", padding: 0,
+                        display: "flex", alignItems: "center", justifyContent: "center",
+                    }}>
+                        <Ico d={PATHS.x} s={12} stroke={2} color={T.muted} />
+                    </button>
+                )}
+            </div>
+
+            {open && (
+                <_SheetOverlay onClose={() => setOpen(false)}>
+                    <_Handle />
+                    <_Toolbar
+                        title="Filter by Date"
+                        onClose={() => setOpen(false)}
+                        onConfirm={handleApply}
+                        canConfirm={!!(draft.from)}
+                    />
+                    <_SheetPills
+                        presets={PRESETS.map(p => p.label)}
+                        active={activeP}
+                        onSelect={handlePresetSelect}
+                    />
+
+                    {/* Non-custom: date summary */}
+                    {activeP >= 0 && !isCustom && draft.from && (
+                        <div style={{ margin: "0 16px 12px", padding: "10px 14px", background: "rgba(35,35,255,0.06)", borderRadius: 10, display: "flex", alignItems: "center", gap: 8 }}>
+                            <Ico d={PATHS.cal} s={15} color={SH.action} />
+                            <span style={{ fontFamily: "'Rokkitt',serif", fontSize: 13, color: SH.action }}>
+                                {_fmtDate(draft.from)} → {draft.to ? _fmtDate(draft.to) : "today"}
+                            </span>
+                        </div>
+                    )}
+
+                    {/* Custom: From/To strip + calendar */}
+                    {isCustom && (
+                        <>
+                            <div style={{ display: "flex", gap: 6, padding: "0 16px 12px" }}>
+                                <button onClick={() => setPicking("from")} style={{
+                                    flex: 1, height: 52, borderRadius: 12,
+                                    border: `1.5px solid ${picking === "from" ? SH.action : SH.border}`,
+                                    background: picking === "from" ? "rgba(35,35,255,0.06)" : SH.bg,
+                                    cursor: "pointer", display: "flex", flexDirection: "column",
+                                    alignItems: "center", justifyContent: "center",
+                                }}>
+                                    <span style={{ fontFamily: "'Rokkitt',serif", fontSize: 10, color: SH.muted, textTransform: "uppercase", letterSpacing: "0.08em" }}>From</span>
+                                    <span style={{ fontFamily: "'Rokkitt',serif", fontSize: 14, fontWeight: 600, color: draft.from ? SH.action : SH.muted }}>
+                                        {draft.from ? _fmtDate(draft.from) : "— — —"}
+                                    </span>
+                                </button>
+                                <div style={{ display: "flex", alignItems: "center" }}>
+                                    <Ico d="M5 12h14" s={16} color={SH.border} />
+                                </div>
+                                <button onClick={() => draft.from && setPicking("to")} style={{
+                                    flex: 1, height: 52, borderRadius: 12,
+                                    border: `1.5px solid ${picking === "to" ? SH.action : SH.border}`,
+                                    background: picking === "to" ? "rgba(35,35,255,0.06)" : SH.bg,
+                                    cursor: draft.from ? "pointer" : "default",
+                                    display: "flex", flexDirection: "column",
+                                    alignItems: "center", justifyContent: "center",
+                                    opacity: draft.from ? 1 : 0.45,
+                                }}>
+                                    <span style={{ fontFamily: "'Rokkitt',serif", fontSize: 10, color: SH.muted, textTransform: "uppercase", letterSpacing: "0.08em" }}>To</span>
+                                    <span style={{ fontFamily: "'Rokkitt',serif", fontSize: 14, fontWeight: 600, color: draft.to ? SH.action : SH.muted }}>
+                                        {draft.to ? _fmtDate(draft.to) : "— — —"}
+                                    </span>
+                                </button>
+                            </div>
+                            <_CalGrid
+                                year={viewY} month={viewM}
+                                selected={picking === "from" ? draft.from : draft.to}
+                                rangeFrom={draft.from} rangeTo={draft.to}
+                                onSelect={handleDateSelect}
+                                onPrev={() => { const [y, m] = _prevMo(viewY, viewM); setViewY(y); setViewM(m); }}
+                                onNext={() => { const [y, m] = _nextMo(viewY, viewM); setViewY(y); setViewM(m); }}
+                            />
+                        </>
+                    )}
+                </_SheetOverlay>
+            )}
+        </div>
+    );
+}

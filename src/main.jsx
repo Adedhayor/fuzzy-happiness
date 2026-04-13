@@ -4,11 +4,12 @@ import App from './App.jsx'
 import NukodesApp from './Nukodes_App.jsx'
 import NukodesAppV2 from './Nukodes_App_V2.jsx'
 import NukodesAppV3 from './Nukodes_App_V3.jsx'
+import NukodesAppV4 from './Nukodes_App_V4.jsx'
 import NukodesOnboarding from './Nukodes_Onboarding.jsx'
 import EmailPreview from './emails/EmailPreview.jsx'
 
 function AppSelector() {
-    const [view, setView] = useState('onboarding'); // 'ds', 'app', 'v2', 'v3', 'onboarding', 'emails'
+    const [view, setView] = useState('v4'); // 'ds', 'app', 'v2', 'v3', 'v4', 'onboarding', 'emails'
 
     return (
         <div style={{ position: 'relative', height: '100vh', width: '100vw', overflow: 'hidden' }}>
@@ -113,6 +114,23 @@ function AppSelector() {
                     Onboarding
                 </button>
                 <button
+                    onClick={() => setView('v4')}
+                    style={{
+                        padding: '8px 16px',
+                        borderRadius: '8px',
+                        border: 'none',
+                        background: view === 'v4' ? '#0A84FF' : 'transparent',
+                        color: '#fff',
+                        cursor: 'pointer',
+                        fontFamily: 'Rokkitt, serif',
+                        fontSize: '14px',
+                        fontWeight: 600,
+                        transition: 'background 0.2s'
+                    }}
+                >
+                    App V4
+                </button>
+                <button
                     onClick={() => setView('emails')}
                     style={{
                         padding: '8px 16px',
@@ -131,7 +149,7 @@ function AppSelector() {
                 </button>
             </div>
 
-            {view === 'ds' ? <App /> : view === 'app' ? <NukodesApp /> : view === 'v2' ? <NukodesAppV2 /> : view === 'v3' ? <NukodesAppV3 /> : view === 'onboarding' ? <NukodesOnboarding /> : <EmailPreview />}
+            {view === 'ds' ? <App /> : view === 'app' ? <NukodesApp /> : view === 'v2' ? <NukodesAppV2 /> : view === 'v3' ? <NukodesAppV3 /> : view === 'v4' ? <NukodesAppV4 /> : view === 'onboarding' ? <NukodesOnboarding /> : <EmailPreview />}
         </div>
     );
 }

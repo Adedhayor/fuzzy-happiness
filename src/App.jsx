@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { T_DARK as T, BADGE, PATHS, Ico, Badge, Av, ChevD, Check, Plus, Minus, X, Upload, ImgIco } from "./Nukoder_DS";
+import { T_DARK as T, BADGE, PATHS, Ico, Badge, Av, ChevD, Check, Plus, Minus, X, Upload, ImgIco, FilterPills, DateInput, DateRangeFilter } from "./Nukoder_DS";
 
 const ChevR = () => <Ico d="M9 18l6-6-6-6" s={16} stroke={2} />;
 const Chevron = ChevR;
@@ -927,6 +927,78 @@ function C24() {
     );
 }
 
+// ── C25: Filter Pills ─────────────────────────────────────────────────────────
+function C25() {
+    const [a1, sA1] = useState(0);
+    const [a2, sA2] = useState(0);
+    const sets = [
+        ["All", "Outstanding", "Overdue", "Paid", "Draft", "Cancelled"],
+        ["All", "In Stock", "Low Stock", "Out of Stock"],
+    ];
+    return (
+        <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+            <div style={{ fontFamily: "'Rokkitt',serif", fontSize: 11, color: T.muted, letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 4 }}>Invoice Status · Inventory Status</div>
+            {sets.map((tabs, gi) => (
+                <div key={gi}>
+                    <FilterPills tabs={tabs} active={gi === 0 ? a1 : a2} onSelect={gi === 0 ? sA1 : sA2} />
+                </div>
+            ))}
+            <FilterPills tabs={["All", "In Stock", "Low Stock", "Out of Stock"]} active={0} onSelect={() => {}} size="sm" />
+            <div style={{ padding: "10px 14px", background: "rgba(35,35,255,.08)", borderRadius: 10, border: "1px solid rgba(35,35,255,.2)" }}>
+                <span style={{ fontFamily: "'Rokkitt',serif", fontSize: 12, color: T.a400 }}>size="md" (32px) · size="sm" (28px) · active pill fills with action color</span>
+            </div>
+        </div>
+    );
+}
+
+// ── C26: DateInput ────────────────────────────────────────────────────────────
+function C26() {
+    const [invoiceDate, setInvoiceDate] = useState(null);
+    const [dueDate, setDueDate]         = useState(null);
+    return (
+        <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+            <div style={{ fontFamily: "'Rokkitt',serif", fontSize: 11, color: T.muted, letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 4 }}>Form — date field · tap to open sheet</div>
+            <DateInput label="Invoice Date" placeholder="Select invoice date" value={invoiceDate} onChange={setInvoiceDate} />
+            <DateInput label="Due Date" placeholder="Select due date" value={dueDate} onChange={setDueDate} />
+            {(invoiceDate || dueDate) && (
+                <div style={{ padding: "10px 14px", background: "rgba(40,173,31,.08)", borderRadius: 10, border: "1px solid rgba(40,173,31,.3)" }}>
+                    <span style={{ fontFamily: "'Rokkitt',serif", fontSize: 12, color: T.ok }}>
+                        {invoiceDate ? `Invoice: ${invoiceDate.toDateString()}` : ""}{invoiceDate && dueDate ? " · " : ""}{dueDate ? `Due: ${dueDate.toDateString()}` : ""}
+                    </span>
+                </div>
+            )}
+            <div style={{ padding: "10px 14px", background: "rgba(35,35,255,.08)", borderRadius: 10, border: "1px solid rgba(35,35,255,.2)" }}>
+                <span style={{ fontFamily: "'Rokkitt',serif", fontSize: 12, color: T.a400 }}>Sheet is always light-mode (Figma spec) · Quick presets · Confirm via ✓ button</span>
+            </div>
+        </div>
+    );
+}
+
+// ── C27: DateRangeFilter ──────────────────────────────────────────────────────
+function C27() {
+    const [range, setRange] = useState({ from: null, to: null });
+    return (
+        <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+            <div style={{ fontFamily: "'Rokkitt',serif", fontSize: 11, color: T.muted, letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 4 }}>Filter trigger · tap to open range sheet</div>
+            <div style={{ display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap" }}>
+                <DateRangeFilter value={range} onChange={setRange} label="Date Range" />
+                <span style={{ fontFamily: "'Rokkitt',serif", fontSize: 12, color: T.muted }}>Used alongside FilterPills →</span>
+                <FilterPills tabs={["All", "Outstanding", "Overdue", "Paid"]} active={0} onSelect={() => {}} />
+            </div>
+            {range.from && (
+                <div style={{ padding: "10px 14px", background: "rgba(40,173,31,.08)", borderRadius: 10, border: "1px solid rgba(40,173,31,.3)" }}>
+                    <span style={{ fontFamily: "'Rokkitt',serif", fontSize: 12, color: T.ok }}>
+                        {range.from.toDateString()} {range.to ? ` → ${range.to.toDateString()}` : ""}
+                    </span>
+                </div>
+            )}
+            <div style={{ padding: "10px 14px", background: "rgba(35,35,255,.08)", borderRadius: 10, border: "1px solid rgba(35,35,255,.2)" }}>
+                <span style={{ fontFamily: "'Rokkitt',serif", fontSize: 12, color: T.a400 }}>Presets: Last 7/14/30/60 days · Custom: tap From → To on calendar · range pill highlight</span>
+            </div>
+        </div>
+    );
+}
+
 const COMPS = [
     { id: "01", name: "List Item / Row", used: "Products · Invoices · Customers · Team", demo: <C1 /> },
     { id: "02", name: "Status Badge", used: "Invoices · Stock · Orders · FlexPay", demo: <C2 /> },
@@ -952,6 +1024,9 @@ const COMPS = [
     { id: "22", name: "POS Keypad",                used: "POSTerminal screen",                   demo: <C22 /> },
     { id: "23", name: "Theme Tokens",              used: "Dark + Light mode · WCAG AA verified",  demo: <C23 /> },
     { id: "24", name: "Cash Flow Chart",           used: "Dashboard · Reports overview",          demo: <C24 /> },
+    { id: "25", name: "Filter Pills",              used: "Invoices · Inventory · Transactions",    demo: <C25 /> },
+    { id: "26", name: "DateInput",                 used: "Invoice date · Due date · Expense date", demo: <C26 /> },
+    { id: "27", name: "DateRangeFilter",           used: "Reports · Invoice filter · Expenses",    demo: <C27 /> },
 ];
 
 export default function App() {
@@ -966,7 +1041,7 @@ export default function App() {
                 <div style={{ padding: "16px 14px 12px", borderBottom: `1px solid ${T.el}` }}>
                     <div style={{ fontSize: 9, fontWeight: 700, color: T.action, letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 3 }}>Nukoder DS · Phase 3</div>
                     <div style={{ fontSize: 16, fontWeight: 700, color: T.text }}>Component Ref</div>
-                    <div style={{ fontSize: 11, color: T.muted, marginTop: 3 }}>24 components · Dark + Light · WCAG AA</div>
+                    <div style={{ fontSize: 11, color: T.muted, marginTop: 3 }}>27 components · Dark + Light · WCAG AA</div>
                 </div>
                 <div style={{ flex: 1, overflowY: "auto", padding: 6 }}>
                     {COMPS.map((c, i) => <button key={c.id} onClick={() => sA(i)} style={{ width: "100%", padding: "9px 10px", borderRadius: 10, border: "none", background: active === i ? "rgba(35,35,255,.15)" : "transparent", cursor: "pointer", textAlign: "left", marginBottom: 2, transition: "background .15s" }}>
